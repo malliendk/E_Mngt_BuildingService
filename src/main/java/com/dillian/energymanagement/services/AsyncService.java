@@ -1,15 +1,14 @@
 package com.dillian.energymanagement.services;
 
-import com.dillian.energymanagement.enums.TimeOfDay;
-import com.dillian.energymanagement.enums.WeatherType;
 import com.dillian.energymanagement.WebSocketHandler;
 import com.dillian.energymanagement.entities.Event;
+import com.dillian.energymanagement.enums.TimeOfDay;
+import com.dillian.energymanagement.enums.WeatherType;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.util.Map;
 
 @Service

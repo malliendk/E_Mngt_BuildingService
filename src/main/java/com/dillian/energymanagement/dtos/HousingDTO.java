@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class HousingDTO {
+public class HousingDTO extends BuildingDTO {
 
     private Long id;
     private String name;
@@ -13,6 +13,6 @@ public class HousingDTO {
     int price;
     private int houseHolds;
     private double energyConsumption;
-    private double solarPanelCapacity;
-    private double popYield;
+    private int solarPanelCapacity;
+    private double popularityYield;
 }

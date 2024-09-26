@@ -1,12 +1,10 @@
 package com.dillian.energymanagement.controllers;
 
-import com.dillian.energymanagement.dtos.EnergySourceDTO;
+import com.dillian.energymanagement.dtos.BuildingDTO;
+import com.dillian.energymanagement.dtos.BuildingsRequestDto;
 import com.dillian.energymanagement.services.BuildingService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,29 +19,22 @@ public class BuildingController {
     }
 
     @GetMapping
-    public ResponseEntity<List<EnergySourceDTO>> findAll() {
-        List<EnergySourceDTO> loadSources = buildingService.findAll();
+    public ResponseEntity<List<BuildingDTO>> findAll() {
+        List<BuildingDTO> loadSources = buildingService.findAll();
         return ResponseEntity.ok(loadSources);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<EnergySourceDTO> findById(@PathVariable Long id) {
-        try {
-            EnergySourceDTO loadSource = buildingService.findById(id);
-            return ResponseEntity.ok(loadSource);
-        } catch (Exception e) {
-            return ResponseEntity.notFound().build();
-        }
+
+    @GetMapping("all")
+    public ResponseEntity<List<BuildingDTO>> findAllById(@RequestBody BuildingsRequestDto requestDto) {
+        return ResponseEntity
+                .ok(buildingService.findAllById(requestDto.getIds()));
     }
 
-    @GetMapping("/name/{name}")
-    public ResponseEntity<EnergySourceDTO> findByName(@PathVariable String name) {
-        try {
-            EnergySourceDTO loadSource = buildingService.findByName(name);
-            return ResponseEntity.ok(loadSource);
-        } catch (Exception e) {
-            return ResponseEntity.notFound().build();
-        }
+    @GetMapping("{id}")
+    public ResponseEntity<BuildingDTO> findById(@PathVariable Long id) throws Exception {
+        return ResponseEntity
+                .ok(buildingService.findById(id));
     }
 }
 

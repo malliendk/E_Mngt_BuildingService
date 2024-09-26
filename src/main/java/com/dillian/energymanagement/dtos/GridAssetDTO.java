@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class GridAssetDTO {
+public class GridAssetDTO extends BuildingDTO{
 
     private Long id;
     private String name;
