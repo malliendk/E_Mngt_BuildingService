@@ -1,7 +1,7 @@
 package com.dillian.energymanagement.services;
 
 
-import com.dillian.energymanagement.dtos.BuildingDTO;
+import com.dillian.energymanagement.dtos.building.BuildingDTO;
 
 import java.util.List;
 

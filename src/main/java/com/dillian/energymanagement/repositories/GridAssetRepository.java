@@ -1,6 +1,6 @@
 package com.dillian.energymanagement.repositories;
 
-import com.dillian.energymanagement.entities.GridAsset;
+import com.dillian.energymanagement.entities.building.GridAsset;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,6 +1,6 @@
 package com.dillian.energymanagement.repositories;
 
-import com.dillian.energymanagement.entities.Housing;
+import com.dillian.energymanagement.entities.building.Housing;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

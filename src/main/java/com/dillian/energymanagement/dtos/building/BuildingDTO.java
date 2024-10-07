@@ -1,4 +1,4 @@
-package com.dillian.energymanagement.dtos;
+package com.dillian.energymanagement.dtos.building;
 
 import lombok.Getter;
 import lombok.Setter;

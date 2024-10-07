@@ -1,6 +1,6 @@
-package com.dillian.energymanagement.entities;
+package com.dillian.energymanagement.entities.building;
 
-import com.dillian.energymanagement.dtos.BuildingDTO;
+import com.dillian.energymanagement.dtos.building.BuildingDTO;
 import com.dillian.energymanagement.mappers.BuildingMapper;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

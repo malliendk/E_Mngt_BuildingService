@@ -1,15 +1,14 @@
 package com.dillian.energymanagement.services;
 
 
-import com.dillian.energymanagement.dtos.BuildingDTO;
-import com.dillian.energymanagement.entities.*;
+import com.dillian.energymanagement.dtos.building.BuildingDTO;
+import com.dillian.energymanagement.entities.building.Building;
 import com.dillian.energymanagement.mappers.BuildingMapper;
 import com.dillian.energymanagement.repositories.EnergySourceRepository;
 import com.dillian.energymanagement.repositories.GridAssetRepository;
 import com.dillian.energymanagement.repositories.HousingRepository;
 import com.dillian.energymanagement.repositories.PublicBuildingRepository;
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -50,7 +49,6 @@ public class BuildingServiceImpl implements BuildingService {
                 .toList();
     }
 
-
     @Override
     public List<BuildingDTO> findAllById(List<Long> ids) {
         return findAll()
@@ -60,7 +58,7 @@ public class BuildingServiceImpl implements BuildingService {
     }
 
     @Override
-    public BuildingDTO findById(Long id) throws Exception {
+    public BuildingDTO findById(Long id) {
         List<Optional<? extends Building>> candidateBuildings = List.of(
                 energySourceRepository.findById(id),
                 housingRepository.findById(id),
@@ -72,11 +70,12 @@ public class BuildingServiceImpl implements BuildingService {
                 .map(Optional::get)
                 .toList();
         if (foundBuilding.isEmpty()) {
-            throw new Exception("Building not found");
+            throw new RuntimeException("No buildings found with this id");
         } else if (foundBuilding.size() > 1) {
-            throw new Exception("More than one building with the same id found");
+            throw new RuntimeException("More than one building with the same id found");
         }
-
         return foundBuilding.getFirst().toBuildingDTO(mapper);
     }
+
+
 }

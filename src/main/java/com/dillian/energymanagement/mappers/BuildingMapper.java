@@ -1,7 +1,7 @@
 package com.dillian.energymanagement.mappers;
 
-import com.dillian.energymanagement.dtos.BuildingDTO;
-import com.dillian.energymanagement.entities.*;
+import com.dillian.energymanagement.dtos.building.BuildingDTO;
+import com.dillian.energymanagement.entities.building.*;
 import org.springframework.stereotype.Component;
 
 @Component
