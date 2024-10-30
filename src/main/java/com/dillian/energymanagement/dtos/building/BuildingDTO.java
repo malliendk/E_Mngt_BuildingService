@@ -3,6 +3,8 @@ package com.dillian.energymanagement.dtos.building;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 public class BuildingDTO {
@@ -17,7 +19,7 @@ public class BuildingDTO {
     private double energyProduction;
     private int houseHolds;
     private double energyConsumption;
-    private int solarPanelCapacity;
+    private List<Long> solarPanelSetIds;
     private double popularityYield;
     private int researchYield;
 }

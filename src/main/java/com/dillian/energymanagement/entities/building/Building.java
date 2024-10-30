@@ -5,6 +5,7 @@ import com.dillian.energymanagement.mappers.BuildingMapper;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,6 +14,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public abstract class Building {
 
     @Id
@@ -23,12 +25,5 @@ public abstract class Building {
     private int price;
     private String imageUri;
 
-    public Building(String name, String description, int price, String imageUri) {
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.imageUri = imageUri;
-    }
-
-    public abstract BuildingDTO toBuildingDTO(BuildingMapper mapper); ;
+    public abstract BuildingDTO toBuildingDTO(BuildingMapper mapper);
 }

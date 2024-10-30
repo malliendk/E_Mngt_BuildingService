@@ -1,16 +1,34 @@
 package com.dillian.energymanagement.generators;
 
+import com.dillian.energymanagement.entities.building.PublicBuilding;
+import com.dillian.energymanagement.repositories.PublicBuildingRepository;
 import com.dillian.energymanagement.services.BuildingServiceImpl;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @AllArgsConstructor
 @Slf4j
 public class BuildingGenerator {
 
-    private final BuildingServiceImpl service;
+    private final PublicBuildingRepository publicBuildingRepository;
+
+    public void createPublicBuildings() {
+        PublicBuilding townHall = new PublicBuilding();
+        townHall.setId(1L);
+        townHall.setName("Town Hall");
+        townHall.setDescription("Town Hall");
+        townHall.setPrice(0);
+        townHall.setImageUri("url");
+        townHall.setSolarPanelCapacity(100);
+        townHall.setSolarPanelNumber(100);
+        publicBuildingRepository.saveAll(List.of(
+                townHall
+        ));
+    }
 
 //    public List<Building> createWithBasicProperties() {
 //        Building kolenCentrale = new Building("kolencentrale", "energievoorziening" +

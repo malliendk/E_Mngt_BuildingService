@@ -7,19 +7,22 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
+
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class PublicBuilding extends Building {
 
     private double energyConsumption;
-    private int solarPanelCapacity;
     private int researchYield;
     private int popularityYield;
     private int gridLoad;
+    private int solarPanelCapacity;
+    private int solarPanelNumber;
 
     @Override
     public BuildingDTO toBuildingDTO(BuildingMapper mapper) {
