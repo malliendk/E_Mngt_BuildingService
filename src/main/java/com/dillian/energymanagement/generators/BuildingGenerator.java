@@ -1,8 +1,9 @@
 package com.dillian.energymanagement.generators;
 
+import com.dillian.energymanagement.entities.building.Factory;
 import com.dillian.energymanagement.entities.building.PublicBuilding;
+import com.dillian.energymanagement.repositories.FactoryRepository;
 import com.dillian.energymanagement.repositories.PublicBuildingRepository;
-import com.dillian.energymanagement.services.BuildingServiceImpl;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,7 @@ import java.util.List;
 public class BuildingGenerator {
 
     private final PublicBuildingRepository publicBuildingRepository;
+    private final FactoryRepository factoryRepository;
 
     public void createPublicBuildings() {
         PublicBuilding townHall = new PublicBuilding();
@@ -24,10 +26,18 @@ public class BuildingGenerator {
         townHall.setPrice(0);
         townHall.setImageUri("url");
         townHall.setSolarPanelCapacity(100);
-        townHall.setSolarPanelNumber(100);
-        publicBuildingRepository.saveAll(List.of(
-                townHall
-        ));
+        publicBuildingRepository.saveAll(List.of(townHall));
+    }
+
+    public void createFactories() {
+        Factory coalPlant = new Factory();
+        coalPlant.setId(2L);
+        coalPlant.setName("Coal Plant");
+        coalPlant.setDescription("Coal Plant");
+        coalPlant.setPrice(0);
+        coalPlant.setImageUri("url");
+        coalPlant.setEnergyProduction(10000);
+        factoryRepository.saveAll(List.of(coalPlant));
     }
 
 //    public List<Building> createWithBasicProperties() {

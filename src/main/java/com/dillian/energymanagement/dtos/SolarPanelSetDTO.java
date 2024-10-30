@@ -1,6 +1,5 @@
 package com.dillian.energymanagement.dtos;
 
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,6 +8,7 @@ import lombok.Setter;
 public class SolarPanelSetDTO {
 
     private double energyProduction;
-    private Long housingDtoId;
-    private double researchYield;
+    private int goldIncome;
+    private int researchIncome;
+    private int environmentalIncome;
 }

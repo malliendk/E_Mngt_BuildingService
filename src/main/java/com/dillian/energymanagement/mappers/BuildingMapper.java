@@ -4,41 +4,47 @@ import com.dillian.energymanagement.dtos.building.BuildingDTO;
 import com.dillian.energymanagement.entities.building.*;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
 @Component
 public class BuildingMapper {
 
-    public BuildingDTO toBuildingDto(EnergySource energySource) {
+    public BuildingDTO toBuildingDTO(PublicBuilding publicBuilding) {
+        BuildingDTO buildingDTO = createWithGenericProperties(publicBuilding);
+        buildingDTO.setGridLoad(publicBuilding.getGridLoad());
+        buildingDTO.setEnergyConsumption(publicBuilding.getEnergyConsumption());
+        buildingDTO.setResearchYield(buildingDTO.getResearchYield());
+        buildingDTO.setPopularityYield(buildingDTO.getPopularityYield());
+        return buildingDTO;
+    }
+
+    public BuildingDTO toBuildingDTO(Factory factory) {
+        BuildingDTO buildingDTO = createWithGenericProperties(factory);
+        buildingDTO.setEnergyProduction(factory.getEnergyProduction());
+        buildingDTO.setGridLoad(buildingDTO.getGridLoad());
+        buildingDTO.setPrice(factory.getPrice());
+        return buildingDTO;
+    }
+
+    public BuildingDTO toBuildingDTO(EnergySource energySource) {
         BuildingDTO buildingDTO = createWithGenericProperties(energySource);
         buildingDTO.setGridLoad(energySource.getGridLoad());
         buildingDTO.setEnergyProduction(energySource.getEnergyProduction());
         return buildingDTO;
     }
 
-    public BuildingDTO toBuildingDto(GridAsset gridAsset) {
+    public BuildingDTO toBuildingDTO(GridAsset gridAsset) {
         BuildingDTO buildingDTO = createWithGenericProperties(gridAsset);
         buildingDTO.setGridLoad(gridAsset.getGridCapacityIncrease());
         return buildingDTO;
     }
 
-    public BuildingDTO toBuildingDto(Housing housing) {
+    public BuildingDTO toBuildingDTO(Housing housing) {
         BuildingDTO buildingDTO = createWithGenericProperties(housing);
         buildingDTO.setEnergyConsumption(housing.getEnergyConsumption());
         buildingDTO.setHouseHolds(housing.getHouseHolds());
-        buildingDTO.setSolarPanelSetIds(List.of(housing.getSolarPanelSets().getId()));
         return buildingDTO;
     }
 
-    public BuildingDTO toBuildingDto(PublicBuilding publicBuilding) {
-        BuildingDTO buildingDTO = createWithGenericProperties(publicBuilding);
-        buildingDTO.setGridLoad(publicBuilding.getGridLoad());
-        buildingDTO.setEnergyConsumption(publicBuilding.getEnergyConsumption());
-        buildingDTO.setSolarPanelSetIds(publicBuilding.getSolarPanelSetIds());
-        buildingDTO.setResearchYield(buildingDTO.getResearchYield());
-        buildingDTO.setPopularityYield(buildingDTO.getPopularityYield());
-        return buildingDTO;
-    }
+
 
     private BuildingDTO createWithGenericProperties(Building building) {
         BuildingDTO buildingDTO = new BuildingDTO();

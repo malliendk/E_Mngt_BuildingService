@@ -1,5 +1,6 @@
 package com.dillian.energymanagement.dtos.building;
 
+import com.dillian.energymanagement.dtos.SolarPanelSetDTO;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,7 +12,7 @@ public class PublicBuildingDTO extends BuildingDTO {
 
     private double gridLoad;
     private double energyConsumption;
-    private List<Long> solarPanelSetIds;
     private int researchYield;
     private double popularityYield;
+    private List<SolarPanelSetDTO> solarPanelSets;
 }

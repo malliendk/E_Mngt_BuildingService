@@ -20,7 +20,7 @@ public class EnergySource extends Building {
 
     @Override
     public BuildingDTO toBuildingDTO(BuildingMapper mapper) {
-        return mapper.toBuildingDto(this);
+        return mapper.toBuildingDTO(this);
     }
 }
 

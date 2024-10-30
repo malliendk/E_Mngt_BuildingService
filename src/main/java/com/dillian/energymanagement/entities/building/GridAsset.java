@@ -20,6 +20,6 @@ public class GridAsset extends Building {
 
     @Override
     public BuildingDTO toBuildingDTO(BuildingMapper mapper) {
-        return mapper.toBuildingDto(this);
+        return mapper.toBuildingDTO(this);
     }
 }

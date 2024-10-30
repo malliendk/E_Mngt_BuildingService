@@ -1,6 +1,5 @@
 package com.dillian.energymanagement.schedulers;
 
-import com.dillian.energymanagement.entities.Event;
 import com.dillian.energymanagement.services.EventService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
