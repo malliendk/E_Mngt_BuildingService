@@ -1,6 +1,6 @@
 package com.dillian.energymanagement;
 
-import com.dillian.energymanagement.generators.BuildingGenerator;
+import com.dillian.energymanagement.bootstrap.BuildingGenerator;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

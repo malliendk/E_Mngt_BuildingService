@@ -18,6 +18,7 @@ public class PublicBuilding extends Building {
     private int popularityYield;
     private int gridLoad;
     private int solarPanelCapacity;
+    private int solarPanelAmount;
 
     @Override
     public BuildingDTO toBuildingDTO(BuildingMapper mapper) {

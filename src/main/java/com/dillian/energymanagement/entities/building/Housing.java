@@ -18,6 +18,8 @@ public class Housing extends Building {
     private int houseHolds;
     private double energyConsumption;
     private double popularityYield;
+    private int solarPanelCapacity;
+    private int solarPanelAmount;
 
     @Override
     public BuildingDTO toBuildingDTO(BuildingMapper mapper) {

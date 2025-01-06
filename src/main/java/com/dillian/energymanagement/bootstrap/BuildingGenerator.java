@@ -1,4 +1,4 @@
-package com.dillian.energymanagement.generators;
+package com.dillian.energymanagement.bootstrap;
 
 import com.dillian.energymanagement.entities.building.Factory;
 import com.dillian.energymanagement.entities.building.PublicBuilding;
@@ -26,6 +26,7 @@ public class BuildingGenerator {
         townHall.setPrice(0);
         townHall.setImageUri("url");
         townHall.setSolarPanelCapacity(100);
+        townHall.setSolarPanelAmount(100);
         publicBuildingRepository.saveAll(List.of(townHall));
     }
 

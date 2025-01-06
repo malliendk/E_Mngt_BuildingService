@@ -13,6 +13,8 @@ public class BuildingMapper {
         buildingDTO.setEnergyConsumption(publicBuilding.getEnergyConsumption());
         buildingDTO.setResearchYield(buildingDTO.getResearchYield());
         buildingDTO.setPopularityYield(buildingDTO.getPopularityYield());
+        buildingDTO.setSolarPanelAmount(publicBuilding.getSolarPanelAmount());
+        buildingDTO.setSolarPanelCapacity(publicBuilding.getSolarPanelCapacity());
         return buildingDTO;
     }
 
@@ -41,10 +43,10 @@ public class BuildingMapper {
         BuildingDTO buildingDTO = createWithGenericProperties(housing);
         buildingDTO.setEnergyConsumption(housing.getEnergyConsumption());
         buildingDTO.setHouseHolds(housing.getHouseHolds());
+        buildingDTO.setSolarPanelAmount(housing.getSolarPanelAmount());
+        buildingDTO.setSolarPanelCapacity(housing.getSolarPanelCapacity());
         return buildingDTO;
     }
-
-
 
     private BuildingDTO createWithGenericProperties(Building building) {
         BuildingDTO buildingDTO = new BuildingDTO();
