@@ -1,7 +1,7 @@
 package com.dillian.energymanagement.services;
 
 
-import com.dillian.energymanagement.dtos.building.BuildingDTO;
+import com.dillian.energymanagement.dtos.BuildingDTO;
 import com.dillian.energymanagement.entities.building.Building;
 import com.dillian.energymanagement.mappers.BuildingMapper;
 import com.dillian.energymanagement.repositories.*;
@@ -22,32 +22,37 @@ public class BuildingServiceImpl implements BuildingService {
     private final GridAssetRepository gridAssetRepository;
     private final HousingRepository housingRepository;
     private final PublicBuildingRepository publicBuildingRepository;
-    private final FactoryRepository factoryRepository;
+    private final PowerPlantRepository powerPlantRepository;
+    private final SpecialBuildingsRepository specialBuildingsRepository;
 
     @Override
     public List<BuildingDTO> findAll() {
         List<BuildingDTO> publicBuildings = publicBuildingRepository.findAll()
                 .stream()
-                .map(mapper::toBuildingDTO)
+                .map(mapper::toDTO)
                 .toList();
-        List<BuildingDTO> factories = factoryRepository.findAll()
+        List<BuildingDTO> factories = powerPlantRepository.findAll()
                 .stream()
-                .map(mapper::toBuildingDTO)
+                .map(mapper::toDTO)
                 .toList();
         List<BuildingDTO> gridAssets = gridAssetRepository.findAll()
                 .stream()
-                .map(mapper::toBuildingDTO)
+                .map(mapper::toDTO)
                 .toList();
-        List<BuildingDTO> energySources = energySourceRepository.findAll()
-                .stream()
-                .map(mapper::toBuildingDTO)
+        List<BuildingDTO> energySources = energySourceRepository.findAll().stream()
+                .map(mapper::toDTO)
                 .toList();
-        List<BuildingDTO> houseHolds = housingRepository.findAll()
-                .stream()
-                .map(mapper::toBuildingDTO)
+        List<BuildingDTO> houseHolds = housingRepository.findAll().stream()
+                .map(mapper::toDTO)
                 .toList();
-        return Stream.of(publicBuildings, factories, gridAssets, energySources, houseHolds)
+        List<BuildingDTO> specialBuildings = specialBuildingsRepository.findAll().stream()
+                .map(mapper::toDTO)
+                .toList();
+
+        return Stream.of(publicBuildings, factories, gridAssets, energySources, houseHolds, specialBuildings)
                 .flatMap(List::stream)
+//                .sorted(Comparator.comparing(BuildingDTO::getCategory)
+//                        .thenComparing(BuildingDTO::getPrice))
                 .toList();
     }
 
@@ -66,7 +71,8 @@ public class BuildingServiceImpl implements BuildingService {
                 energySourceRepository.findById(id),
                 housingRepository.findById(id),
                 gridAssetRepository.findById(id),
-                factoryRepository.findById(id));
+                powerPlantRepository.findById(id));
+                specialBuildingsRepository.findById(id);
         List<? extends Building> foundBuilding = candidateBuildings
                 .stream()
                 .filter(Optional::isPresent)
@@ -77,8 +83,6 @@ public class BuildingServiceImpl implements BuildingService {
         } else if (foundBuilding.size() > 1) {
             throw new RuntimeException("More than one building with the same id found");
         }
-        return foundBuilding.getFirst().toBuildingDTO(mapper);
+        return foundBuilding.getFirst().foundBuildingToDTO(mapper);
     }
-
-
 }

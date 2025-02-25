@@ -1,6 +1,6 @@
 package com.dillian.energymanagement.entities.building;
 
-import com.dillian.energymanagement.dtos.building.BuildingDTO;
+import com.dillian.energymanagement.dtos.BuildingDTO;
 import com.dillian.energymanagement.mappers.BuildingMapper;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -22,6 +22,7 @@ public abstract class Building {
     private String description;
     private int price;
     private String imageUri;
+    private String category;
 
-    public abstract BuildingDTO toBuildingDTO(BuildingMapper mapper);
+    public abstract BuildingDTO foundBuildingToDTO(BuildingMapper mapper);
 }

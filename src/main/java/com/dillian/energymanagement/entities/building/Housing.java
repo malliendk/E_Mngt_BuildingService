@@ -1,7 +1,10 @@
 package com.dillian.energymanagement.entities.building;
 
-import com.dillian.energymanagement.dtos.building.BuildingDTO;
+import com.dillian.energymanagement.dtos.BuildingDTO;
+import com.dillian.energymanagement.dtos.SolarPanelDTO;
 import com.dillian.energymanagement.mappers.BuildingMapper;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,6 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
+@Embeddable
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,13 +20,16 @@ import lombok.Setter;
 public class Housing extends Building {
 
     private int houseHolds;
-    private double energyConsumption;
-    private double popularityYield;
+    private int energyConsumption;
+    private int goldIncome;
+    private int popularityIncome;
+    @Embedded
+    private SolarPanelDTO solarPanelSet;
     private int solarPanelCapacity;
     private int solarPanelAmount;
 
     @Override
-    public BuildingDTO toBuildingDTO(BuildingMapper mapper) {
-        return mapper.toBuildingDTO(this);
+    public BuildingDTO foundBuildingToDTO(BuildingMapper mapper) {
+        return mapper.toDTO(this);
     }
 }

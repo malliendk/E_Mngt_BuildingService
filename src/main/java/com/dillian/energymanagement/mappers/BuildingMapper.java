@@ -1,50 +1,79 @@
 package com.dillian.energymanagement.mappers;
 
-import com.dillian.energymanagement.dtos.building.BuildingDTO;
+import com.dillian.energymanagement.dtos.BuildingDTO;
+import com.dillian.energymanagement.dtos.SolarPanelDTO;
 import com.dillian.energymanagement.entities.building.*;
 import org.springframework.stereotype.Component;
 
 @Component
 public class BuildingMapper {
 
-    public BuildingDTO toBuildingDTO(PublicBuilding publicBuilding) {
+    public BuildingDTO toDTO(PublicBuilding publicBuilding) {
         BuildingDTO buildingDTO = createWithGenericProperties(publicBuilding);
-        buildingDTO.setGridLoad(publicBuilding.getGridLoad());
-        buildingDTO.setEnergyConsumption(publicBuilding.getEnergyConsumption());
-        buildingDTO.setResearchYield(buildingDTO.getResearchYield());
-        buildingDTO.setPopularityYield(buildingDTO.getPopularityYield());
-        buildingDTO.setSolarPanelAmount(publicBuilding.getSolarPanelAmount());
+        buildingDTO.setPopularityIncome(publicBuilding.getPopularityIncome());
+        int solarPanelAmount = publicBuilding.getSolarPanelAmount();
+        buildingDTO.setSolarPanelAmount(solarPanelAmount);
+        SolarPanelDTO solarPanelDTO;
+        if (publicBuilding.getSolarPanelSet() != null) {
+            solarPanelDTO = publicBuilding.getSolarPanelSet();
+            buildingDTO.setSolarPanels(publicBuilding.getSolarPanelSet());
+            buildingDTO.setEnergyProduction(solarPanelDTO.getEnergyProductionExtra() * solarPanelAmount);
+            buildingDTO.setGoldIncome(solarPanelDTO.getGoldIncomeExtra() * solarPanelAmount);
+            buildingDTO.setResearchIncome(solarPanelDTO.getResearchIncomeExtra() * solarPanelAmount);
+        } else {
+            buildingDTO.setResearchIncome(publicBuilding.getResearchIncome());
+        }
         buildingDTO.setSolarPanelCapacity(publicBuilding.getSolarPanelCapacity());
+        buildingDTO.setEnergyConsumption(publicBuilding.getEnergyConsumption());
         return buildingDTO;
     }
 
-    public BuildingDTO toBuildingDTO(Factory factory) {
-        BuildingDTO buildingDTO = createWithGenericProperties(factory);
-        buildingDTO.setEnergyProduction(factory.getEnergyProduction());
-        buildingDTO.setGridLoad(buildingDTO.getGridLoad());
-        buildingDTO.setPrice(factory.getPrice());
+    public BuildingDTO toDTO(PowerPlant powerPlant) {
+        BuildingDTO buildingDTO = createWithGenericProperties(powerPlant);
+        buildingDTO.setEnergyProduction(powerPlant.getEnergyProduction());
         return buildingDTO;
     }
 
-    public BuildingDTO toBuildingDTO(EnergySource energySource) {
+    public BuildingDTO toDTO(EnergySource energySource) {
         BuildingDTO buildingDTO = createWithGenericProperties(energySource);
-        buildingDTO.setGridLoad(energySource.getGridLoad());
         buildingDTO.setEnergyProduction(energySource.getEnergyProduction());
+        buildingDTO.setPopularityIncome(energySource.getPopularityIncome());
+        buildingDTO.setEnvironmentalScore(energySource.getEnvironmentalScore());
         return buildingDTO;
     }
 
-    public BuildingDTO toBuildingDTO(GridAsset gridAsset) {
+    public BuildingDTO toDTO(GridAsset gridAsset) {
         BuildingDTO buildingDTO = createWithGenericProperties(gridAsset);
-        buildingDTO.setGridLoad(gridAsset.getGridCapacityIncrease());
+        buildingDTO.setGridCapacity(gridAsset.getGridCapacity());
         return buildingDTO;
     }
 
-    public BuildingDTO toBuildingDTO(Housing housing) {
+    public BuildingDTO toDTO(Housing housing) {
         BuildingDTO buildingDTO = createWithGenericProperties(housing);
-        buildingDTO.setEnergyConsumption(housing.getEnergyConsumption());
         buildingDTO.setHouseHolds(housing.getHouseHolds());
+        if (housing.getSolarPanelSet() != null) {
+            SolarPanelDTO solarPanelSet = housing.getSolarPanelSet();
+            buildingDTO.setSolarPanels(housing.getSolarPanelSet());
+            buildingDTO.setEnergyProduction(housing.getSolarPanelAmount() * solarPanelSet.getEnergyProductionExtra());
+            buildingDTO.setGoldIncome(housing.getGoldIncome() * solarPanelSet.getGoldIncomeExtra());
+            buildingDTO.setResearchIncome(housing.getSolarPanelAmount() * solarPanelSet.getResearchIncomeExtra());
+            buildingDTO.setEnvironmentalScore(housing.getSolarPanelAmount() * solarPanelSet.getEnvironmentalScoreExtra());
+        } else {
+            buildingDTO.setGoldIncome(housing.getGoldIncome());
+        }
+        buildingDTO.setEnergyConsumption(housing.getEnergyConsumption());
+        buildingDTO.setPopularityIncome(housing.getPopularityIncome());
         buildingDTO.setSolarPanelAmount(housing.getSolarPanelAmount());
         buildingDTO.setSolarPanelCapacity(housing.getSolarPanelCapacity());
+        return buildingDTO;
+    }
+
+    public BuildingDTO toDTO(SpecialBuilding specialBuilding) {
+        BuildingDTO buildingDTO = createWithGenericProperties(specialBuilding);
+        buildingDTO.setEnergyConsumption(specialBuilding.getEnergyConsumption());
+        buildingDTO.setResearchIncome(specialBuilding.getResearchIncome());
+        buildingDTO.setPopularityIncome(specialBuilding.getPopularityIncome());
+        buildingDTO.setGoldIncome(specialBuilding.getGoldIncome());
         return buildingDTO;
     }
 
@@ -55,6 +84,7 @@ public class BuildingMapper {
         buildingDTO.setDescription(building.getDescription());
         buildingDTO.setPrice(building.getPrice());
         buildingDTO.setImageUri(buildingDTO.getImageUri());
+        buildingDTO.setCategory(building.getCategory());
         return buildingDTO;
     }
 }

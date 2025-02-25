@@ -20,7 +20,6 @@ public class BuildingServiceApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        buildingGenerator.createPublicBuildings();
-        buildingGenerator.createFactories();
+        buildingGenerator.createAndSaveAllBuildings();
     }
 }

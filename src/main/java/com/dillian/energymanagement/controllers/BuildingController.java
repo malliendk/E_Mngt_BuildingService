@@ -1,6 +1,6 @@
 package com.dillian.energymanagement.controllers;
 
-import com.dillian.energymanagement.dtos.building.BuildingDTO;
+import com.dillian.energymanagement.dtos.BuildingDTO;
 import com.dillian.energymanagement.services.BuildingService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("building")
+@RequestMapping()
 public class BuildingController {
 
     private final BuildingService buildingService;

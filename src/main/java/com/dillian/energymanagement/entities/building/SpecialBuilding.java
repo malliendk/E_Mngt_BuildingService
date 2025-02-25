@@ -11,14 +11,17 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class IndustrialBuilding extends Building {
+public class SpecialBuilding extends Building {
 
+    private int goldCost;
+    private int popularityCost;
     private int energyConsumption;
     private int goldIncome;
     private int researchIncome;
+    private int popularityIncome;
 
     @Override
-    public BuildingDTO foundBuildingToDTO(BuildingMapper mapper) {
+    public BuildingDTO foundBuildingToDTO(final BuildingMapper mapper) {
         return null;
     }
 }
