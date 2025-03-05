@@ -19,10 +19,10 @@ public class EnergySource extends Building {
     private int popularityIncome;
     private int environmentalScore;
 
-
     @Override
-    public BuildingDTO foundBuildingToDTO(BuildingMapper mapper) {
-        return mapper.toDTO(this);
+    public BuildingDTO accept(BuildingMapper mapper) {
+        return mapper.energySourceToDTO(this);
     }
+
 }
 

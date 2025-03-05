@@ -4,12 +4,14 @@ import com.dillian.energymanagement.Constants;
 import com.dillian.energymanagement.entities.building.IndustrialBuilding;
 import com.dillian.energymanagement.repositories.IndustrialBuildingRepository;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class IndustrialBuildingBootstrap {
 
     private final IndustrialBuildingRepository industrialBuildingRepository;
@@ -27,6 +29,7 @@ public class IndustrialBuildingBootstrap {
         parkeergarage.setName("Parkeergarage");
         parkeergarage.setDescription("Parkeergarage bestemd voor elektrische voertuigen");
         parkeergarage.setCategory(Constants.CATEGORY_INDUSTRIAL);
+        parkeergarage.setImageUri("assets/photos/electric_parking_lot.png");
         parkeergarage.setPrice(250);
         parkeergarage.setEnergyConsumption(800);
         parkeergarage.setGoldIncome(18);
@@ -53,7 +56,9 @@ public class IndustrialBuildingBootstrap {
         industrialArea.setDescription("speciaal aangewezen gebied waar bedrijven en fabrieken zijn gevestigd," +
                 " gericht op productie, opslag, logistiek en andere industriële activiteiten.");
         industrialArea.setCategory(Constants.CATEGORY_INDUSTRIAL);
+        industrialArea.setImageUri("assets/photos/industrie_terrein.png");
         industrialArea.setPrice(750);
+        industrialArea.setEnergyConsumption(1350);
         industrialArea.setGoldIncome(56);
         return industrialArea;
     }

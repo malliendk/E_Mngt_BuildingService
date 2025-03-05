@@ -19,12 +19,17 @@ public class BuildingGenerator {
     private final PowerPlantBootstrap powerPlantBootstrap;
 
     public void createAndSaveAllBuildings() {
-        energySourceBootstrap.saveEnergySources();
-        gridAssetBootstrap.saveGridAssets();
-        housingBootstrap.saveHousingBuildings();
-        industrialBuildingBootstrap.saveIndustrialBuildings();
-        publicBuildingBootstrap.savePublicBuildings();
-        specialBuildingBootstrap.saveSpecialBuildings();
-        powerPlantBootstrap.savePowerPlants();
+        try {
+            energySourceBootstrap.saveEnergySources();
+            gridAssetBootstrap.saveGridAssets();
+            housingBootstrap.saveHousingBuildings();
+            industrialBuildingBootstrap.saveIndustrialBuildings();
+            publicBuildingBootstrap.savePublicBuildings();
+            specialBuildingBootstrap.saveSpecialBuildings();
+            powerPlantBootstrap.savePowerPlants();
+            log.info("All buildings saved");
+        } catch (Exception e) {
+            log.error("An error occurred: {}", e.getMessage());
+        }
     }
 }

@@ -13,6 +13,8 @@ public class BuildingDTO {
     private int price;
     private String imageUri;
     private String category;
+    private boolean canBePurchased;
+    private boolean isPurchased;
     private int gridCapacity;
     private int energyConsumption;
     private int energyProduction;

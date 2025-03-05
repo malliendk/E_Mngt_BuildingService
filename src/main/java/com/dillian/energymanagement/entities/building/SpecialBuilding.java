@@ -21,7 +21,12 @@ public class SpecialBuilding extends Building {
     private int popularityIncome;
 
     @Override
-    public BuildingDTO foundBuildingToDTO(final BuildingMapper mapper) {
-        return null;
+    public BuildingDTO accept(BuildingMapper mapper) {
+        return mapper.specialBuildingToDTO(this);
     }
+
+//    @Override
+//    public BuildingDTO foundBuildingToDTO(final BuildingMapper mapper) {
+//        return null;
+//    }
 }

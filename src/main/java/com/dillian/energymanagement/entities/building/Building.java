@@ -23,6 +23,10 @@ public abstract class Building {
     private int price;
     private String imageUri;
     private String category;
+    private boolean canBePurchased = true;
+    private boolean isPurchased = false;
 
-    public abstract BuildingDTO foundBuildingToDTO(BuildingMapper mapper);
+    public abstract BuildingDTO accept(BuildingMapper mapper);
+
+//    public abstract BuildingDTO foundBuildingToDTO(BuildingMapper mapper);
 }

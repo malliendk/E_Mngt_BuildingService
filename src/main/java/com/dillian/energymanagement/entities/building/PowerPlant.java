@@ -17,7 +17,12 @@ public class PowerPlant extends Building {
     private int gridLoad;
 
     @Override
-    public BuildingDTO foundBuildingToDTO(BuildingMapper mapper) {
-        return mapper.toDTO(this);
+    public BuildingDTO accept(BuildingMapper mapper) {
+        return mapper.powerPlantToDTO(this);
     }
+
+//    @Override
+//    public BuildingDTO foundBuildingToDTO(BuildingMapper mapper) {
+//        return mapper.publicBuildingToDTO(this);
+//    }
 }

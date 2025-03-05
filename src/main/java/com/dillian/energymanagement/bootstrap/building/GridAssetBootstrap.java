@@ -37,7 +37,7 @@ public class GridAssetBootstrap {
     private GridAsset createMiddenspanningsStation() {
         GridAsset middenspanningsStation = new GridAsset();
         middenspanningsStation.setId(11L);
-        middenspanningsStation.setName("MiddenspanningsStation");
+        middenspanningsStation.setName("Middenspanningsstation");
         middenspanningsStation.setDescription("Elektriciteitsvoorziening die hoogspanning " +
                 "omzet naar middenspanning en de stroom verder verdeelt naar lokale netwerken");
         middenspanningsStation.setCategory(Constants.CATEGORY_GRID_ASSET);

@@ -1,6 +1,7 @@
 package com.dillian.energymanagement.entities;
 
 import com.dillian.energymanagement.entities.building.Building;
+import com.dillian.energymanagement.entities.building.SpecialBuilding;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,11 +14,10 @@ import lombok.Setter;
 public class Event {
 
     @Id
-    @GeneratedValue
-    Long id;
-    String name;
-    String description;
+    private Long id;
+    private String name;
+    private String description;
     @OneToOne
     @JoinColumn(name = "building_id")
-    Building building;
+    private SpecialBuilding building;
 }

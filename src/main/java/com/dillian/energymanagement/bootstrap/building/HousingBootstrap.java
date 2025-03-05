@@ -1,6 +1,7 @@
 package com.dillian.energymanagement.bootstrap.building;
 
 import com.dillian.energymanagement.Constants;
+import com.dillian.energymanagement.dtos.SolarPanelDTO;
 import com.dillian.energymanagement.entities.building.Housing;
 import com.dillian.energymanagement.repositories.HousingRepository;
 import lombok.AllArgsConstructor;
@@ -34,6 +35,7 @@ public class HousingBootstrap {
         vrijstaandHuis.setGoldIncome(2);
         vrijstaandHuis.setPopularityIncome(2);
         vrijstaandHuis.setSolarPanelCapacity(2);
+        vrijstaandHuis.setSolarPanelSet(new SolarPanelDTO());
         return vrijstaandHuis;
     }
 
@@ -50,6 +52,7 @@ public class HousingBootstrap {
         tweeOnderEenKap.setGoldIncome(1);
         tweeOnderEenKap.setPopularityIncome(1);
         tweeOnderEenKap.setSolarPanelCapacity(1);
+        tweeOnderEenKap.setSolarPanelSet(new SolarPanelDTO());
         return tweeOnderEenKap;
     }
 
@@ -63,6 +66,7 @@ public class HousingBootstrap {
         apartmentBuilding.setEnergyConsumption(1625);
         apartmentBuilding.setHouseHolds(25);
         apartmentBuilding.setSolarPanelCapacity(15);
+        apartmentBuilding.setSolarPanelSet(new SolarPanelDTO());
         return apartmentBuilding;
     }
 
@@ -76,6 +80,7 @@ public class HousingBootstrap {
         huizenRij.setPrice(750);
         huizenRij.setEnergyConsumption(800);
         huizenRij.setHouseHolds(10);
+        huizenRij.setSolarPanelSet(new SolarPanelDTO());
         huizenRij.setSolarPanelCapacity(10);
         return huizenRij;
     }

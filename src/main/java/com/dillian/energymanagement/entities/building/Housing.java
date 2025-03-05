@@ -29,7 +29,7 @@ public class Housing extends Building {
     private int solarPanelAmount;
 
     @Override
-    public BuildingDTO foundBuildingToDTO(BuildingMapper mapper) {
-        return mapper.toDTO(this);
+    public BuildingDTO accept(BuildingMapper mapper) {
+        return mapper.housingToDTO(this);
     }
 }

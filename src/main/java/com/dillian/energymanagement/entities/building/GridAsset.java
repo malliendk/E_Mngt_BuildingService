@@ -18,7 +18,7 @@ public class GridAsset extends Building {
     private int gridCapacity;
 
     @Override
-    public BuildingDTO foundBuildingToDTO(BuildingMapper mapper) {
-        return mapper.toDTO(this);
+    public BuildingDTO accept(BuildingMapper mapper) {
+        return mapper.gridAssetToDTO(this);
     }
 }
