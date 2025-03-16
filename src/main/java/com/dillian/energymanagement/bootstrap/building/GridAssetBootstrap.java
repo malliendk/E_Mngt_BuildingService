@@ -1,7 +1,7 @@
 package com.dillian.energymanagement.bootstrap.building;
 
 import com.dillian.energymanagement.Constants;
-import com.dillian.energymanagement.entities.building.GridAsset;
+import com.dillian.energymanagement.entities.building.Utility;
 import com.dillian.energymanagement.repositories.GridAssetRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,15 +15,15 @@ public class GridAssetBootstrap {
     private GridAssetRepository gridAssetRepository;
 
     public void saveGridAssets() {
-        final GridAsset transformatorHuisje = createTransformatorHuisje();
-        final GridAsset middenspanningsStation = createMiddenspanningsStation();
-        final GridAsset hoogspanningsStation = createHoogspanningsStation();
-        final GridAsset hoogspanningsMast = createHoogspanningsMast();
+        final Utility transformatorHuisje = createTransformatorHuisje();
+        final Utility middenspanningsStation = createMiddenspanningsStation();
+        final Utility hoogspanningsStation = createHoogspanningsStation();
+        final Utility hoogspanningsMast = createHoogspanningsMast();
         gridAssetRepository.saveAll(List.of(transformatorHuisje, middenspanningsStation, hoogspanningsStation, hoogspanningsMast));
     }
 
-    private GridAsset createTransformatorHuisje() {
-        GridAsset transformatorHuisje = new GridAsset();
+    private Utility createTransformatorHuisje() {
+        Utility transformatorHuisje = new Utility();
         transformatorHuisje.setId(10L);
         transformatorHuisje.setName("Transformatorhuisje");
         transformatorHuisje.setDescription("Elektriciteitsvoorziening die hoogspanning omzet naar een lagere" +
@@ -34,8 +34,8 @@ public class GridAssetBootstrap {
         return transformatorHuisje;
     }
 
-    private GridAsset createMiddenspanningsStation() {
-        GridAsset middenspanningsStation = new GridAsset();
+    private Utility createMiddenspanningsStation() {
+        Utility middenspanningsStation = new Utility();
         middenspanningsStation.setId(11L);
         middenspanningsStation.setName("Middenspanningsstation");
         middenspanningsStation.setDescription("Elektriciteitsvoorziening die hoogspanning " +
@@ -46,8 +46,8 @@ public class GridAssetBootstrap {
         return middenspanningsStation;
     }
 
-    private GridAsset createHoogspanningsStation() {
-        GridAsset hoogspanningsStation = new GridAsset();
+    private Utility createHoogspanningsStation() {
+        Utility hoogspanningsStation = new Utility();
         hoogspanningsStation.setId(12L);
         hoogspanningsStation.setName("Hoogspanningsstation");
         hoogspanningsStation.setDescription("Schakel- en verdeelstation in het elektriciteitsnet " +
@@ -59,8 +59,8 @@ public class GridAssetBootstrap {
         return hoogspanningsStation;
     }
 
-    private GridAsset createHoogspanningsMast() {
-        GridAsset hoogspanningsMast = new GridAsset();
+    private Utility createHoogspanningsMast() {
+        Utility hoogspanningsMast = new Utility();
         hoogspanningsMast.setId(13L);
         hoogspanningsMast.setName("Hoogspanningsmast");
         hoogspanningsMast.setDescription("Grote metalen toren die gebruikt wordt om " +

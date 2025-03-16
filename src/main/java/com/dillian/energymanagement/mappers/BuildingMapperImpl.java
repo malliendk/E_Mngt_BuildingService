@@ -2,13 +2,15 @@ package com.dillian.energymanagement.mappers;
 
 import com.dillian.energymanagement.dtos.BuildingDTO;
 import com.dillian.energymanagement.dtos.SolarPanelDTO;
+import com.dillian.energymanagement.entities.BuildingVisitor;
 import com.dillian.energymanagement.entities.building.*;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BuildingMapper {
+public class BuildingMapperImpl implements BuildingVisitor {
 
-    public BuildingDTO publicBuildingToDTO(PublicBuilding publicBuilding) {
+    @Override
+    public BuildingDTO forPublicBuilding(PublicBuilding publicBuilding) {
         BuildingDTO buildingDTO = createWithGenericProperties(publicBuilding);
         buildingDTO.setPopularityIncome(publicBuilding.getPopularityIncome());
         int solarPanelAmount = publicBuilding.getSolarPanelAmount();
@@ -28,20 +30,23 @@ public class BuildingMapper {
         return buildingDTO;
     }
 
-    public BuildingDTO powerPlantToDTO(PowerPlant powerPlant) {
+    @Override
+    public BuildingDTO visit(PowerPlant powerPlant) {
         BuildingDTO buildingDTO = createWithGenericProperties(powerPlant);
         buildingDTO.setEnergyProduction(powerPlant.getEnergyProduction());
         return buildingDTO;
     }
 
-    public BuildingDTO industrialBuildingToDTO(IndustrialBuilding industrialBuilding) {
+    @Override
+    public BuildingDTO visit(IndustrialBuilding industrialBuilding) {
         BuildingDTO buildingDTO = createWithGenericProperties(industrialBuilding);
         buildingDTO.setEnergyConsumption(industrialBuilding.getEnergyConsumption());
         buildingDTO.setGoldIncome(industrialBuilding.getGoldIncome());
         return buildingDTO;
     }
 
-    public BuildingDTO energySourceToDTO(EnergySource energySource) {
+    @Override
+    public BuildingDTO visit(EnergySource energySource) {
         BuildingDTO buildingDTO = createWithGenericProperties(energySource);
         buildingDTO.setEnergyProduction(energySource.getEnergyProduction());
         buildingDTO.setPopularityIncome(energySource.getPopularityIncome());
@@ -49,13 +54,15 @@ public class BuildingMapper {
         return buildingDTO;
     }
 
-    public BuildingDTO gridAssetToDTO(GridAsset gridAsset) {
-        BuildingDTO buildingDTO = createWithGenericProperties(gridAsset);
-        buildingDTO.setGridCapacity(gridAsset.getGridCapacity());
+    @Override
+    public BuildingDTO visit(Utility utility) {
+        BuildingDTO buildingDTO = createWithGenericProperties(utility);
+        buildingDTO.setGridCapacity(utility.getGridCapacity());
         return buildingDTO;
     }
 
-    public BuildingDTO housingToDTO(Housing housing) {
+    @Override
+    public BuildingDTO visit(Housing housing) {
         BuildingDTO buildingDTO = createWithGenericProperties(housing);
         buildingDTO.setHouseHolds(housing.getHouseHolds());
         if (housing.getSolarPanelSet() != null) {
@@ -75,7 +82,8 @@ public class BuildingMapper {
         return buildingDTO;
     }
 
-    public BuildingDTO specialBuildingToDTO(SpecialBuilding specialBuilding) {
+    @Override
+    public BuildingDTO visit(SpecialBuilding specialBuilding) {
         BuildingDTO buildingDTO = createWithGenericProperties(specialBuilding);
         buildingDTO.setEnergyConsumption(specialBuilding.getEnergyConsumption());
         buildingDTO.setResearchIncome(specialBuilding.getResearchIncome());
@@ -92,8 +100,6 @@ public class BuildingMapper {
         buildingDTO.setPrice(building.getPrice());
         buildingDTO.setImageUri(building.getImageUri());
         buildingDTO.setCategory(building.getCategory());
-        buildingDTO.setCanBePurchased(building.isCanBePurchased());
-        buildingDTO.setPurchased(building.isPurchased());
         return buildingDTO;
     }
 }

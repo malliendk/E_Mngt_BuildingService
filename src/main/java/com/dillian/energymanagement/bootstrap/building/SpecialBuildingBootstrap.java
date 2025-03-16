@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 @AllArgsConstructor
@@ -15,13 +16,20 @@ public class SpecialBuildingBootstrap {
 
     private final SpecialBuildingsRepository specialBuildingsRepository;
 
-    public void saveSpecialBuildings() {
+    public Map<String, SpecialBuilding> saveSpecialBuildings() {
         final SpecialBuilding aquaPark = createAquaPark();
         final SpecialBuilding themePark = createThemePark();
         final SpecialBuilding snowWorld = createSnowWorld();
         final SpecialBuilding shoppingResort = createShoppingResort();
         final SpecialBuilding laboratory = createLaboratory();
         specialBuildingsRepository.saveAll(List.of(aquaPark, themePark, snowWorld, shoppingResort, laboratory));
+        return Map.of(
+                "aquaPark", aquaPark,
+                "themePark", themePark,
+                "snowWorld", snowWorld,
+                "shoppingResort", shoppingResort,
+                "laboratory", laboratory
+        );
     }
 
     private SpecialBuilding createAquaPark() {
@@ -30,7 +38,7 @@ public class SpecialBuildingBootstrap {
         aquaPark.setName("Tropisch zwemparadijs");
         aquaPark.setDescription("recreatieve zwemlocatie die is ingericht met tropische thema's" );
         aquaPark.setCategory(Constants.CATEGORY_SPECIAL_BUILDING);
-        aquaPark.setCanBePurchased(false);
+        aquaPark.setImageUri("assets/photos/tropisch-zwemparadijs.png");
         aquaPark.setEnergyConsumption(2000);
         aquaPark.setPopularityIncome(60);
         aquaPark.setPopularityCost(1000);
@@ -45,7 +53,6 @@ public class SpecialBuildingBootstrap {
                 "zoals achtbanen, draaimolens en waterattracties, ontworpen voor vermaak " +
                 "en avontuur voor bezoekers van alle leeftijden.");
         themePark.setCategory(Constants.CATEGORY_SPECIAL_BUILDING);
-        themePark.setCanBePurchased(false);
         themePark.setEnergyConsumption(2000);
         themePark.setGoldIncome(75);
         themePark.setPopularityIncome(80);
@@ -61,7 +68,6 @@ public class SpecialBuildingBootstrap {
                 "waar bezoekers het hele jaar door kunnen skiën, " +
                 "snowboarden of andere winteractiviteiten doen,");
         snowWorld.setCategory(Constants.CATEGORY_SPECIAL_BUILDING);
-        snowWorld.setCanBePurchased(false);
         snowWorld.setEnergyConsumption(2250);
         snowWorld.setGoldIncome(50);
         snowWorld.setPopularityIncome(75);
@@ -78,7 +84,6 @@ public class SpecialBuildingBootstrap {
                 "zoals restaurants, entertainment, hotels " +
                 "en wellnessfaciliteiten,");
         shoppingResort.setCategory(Constants.CATEGORY_SPECIAL_BUILDING);
-        shoppingResort.setCanBePurchased(false);
         shoppingResort.setEnergyConsumption(5000);
         shoppingResort.setGoldIncome(160);
         shoppingResort.setPopularityIncome(135);
@@ -94,7 +99,6 @@ public class SpecialBuildingBootstrap {
                 "wetenschappelijk onderzoek en laboratoria, waar wetenschappelijk onderzoek wordt" +
                 "uitgevoerd met behulp van gespecialiseerde apparatuur en materialen.");
         laboratory.setCategory(Constants.CATEGORY_SPECIAL_BUILDING);
-        laboratory.setCanBePurchased(false);
         laboratory.setPopularityCost(2250);
         laboratory.setGoldIncome(120);
         laboratory.setResearchIncome(80);

@@ -1,6 +1,6 @@
 package com.dillian.energymanagement;
 
-import com.dillian.energymanagement.bootstrap.BuildingGenerator;
+import com.dillian.energymanagement.bootstrap.Generator;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -12,7 +12,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @AllArgsConstructor
 public class BuildingServiceApplication implements CommandLineRunner {
 
-    private final BuildingGenerator buildingGenerator;
+    private final Generator generator;
 
     public static void main(String[] args) {
         SpringApplication.run(BuildingServiceApplication.class, args);
@@ -20,6 +20,6 @@ public class BuildingServiceApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        buildingGenerator.createAndSaveAllBuildings();
+        generator.saveBuildingsAndEvents();
     }
 }

@@ -1,7 +1,7 @@
 package com.dillian.energymanagement.entities.building;
 
 import com.dillian.energymanagement.dtos.BuildingDTO;
-import com.dillian.energymanagement.mappers.BuildingMapper;
+import com.dillian.energymanagement.entities.BuildingVisitor;
 import jakarta.persistence.Entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,12 +21,8 @@ public class SpecialBuilding extends Building {
     private int popularityIncome;
 
     @Override
-    public BuildingDTO accept(BuildingMapper mapper) {
-        return mapper.specialBuildingToDTO(this);
+    public BuildingDTO accept(BuildingVisitor buildingVisitor) {
+        return buildingVisitor.visit(this);
     }
 
-//    @Override
-//    public BuildingDTO foundBuildingToDTO(final BuildingMapper mapper) {
-//        return null;
-//    }
 }

@@ -1,7 +1,7 @@
 package com.dillian.energymanagement.entities.building;
 
 import com.dillian.energymanagement.dtos.BuildingDTO;
-import com.dillian.energymanagement.mappers.BuildingMapper;
+import com.dillian.energymanagement.entities.BuildingVisitor;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,12 +13,12 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class GridAsset extends Building {
+public class Utility extends Building {
 
     private int gridCapacity;
 
     @Override
-    public BuildingDTO accept(BuildingMapper mapper) {
-        return mapper.gridAssetToDTO(this);
+    public BuildingDTO accept(BuildingVisitor buildingVisitor) {
+        return buildingVisitor.visit(this);
     }
 }

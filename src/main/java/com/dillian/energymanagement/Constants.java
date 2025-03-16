@@ -16,4 +16,7 @@ public class Constants {
     public static final String CATEGORY_HOUSING = "Woning";
     public static final String CATEGORY_POWER_PLANT = "Energiecentrale";
     public static final String CATEGORY_SPECIAL_BUILDING = "Bijzondere voorziening";
+
+    public static final int EVENT_SCHEDULER_OFFSET_SECONDS = 10;
+    public static final int EVENT_SCHEDULER_INTERVAL_SECONDS = 60;
 }

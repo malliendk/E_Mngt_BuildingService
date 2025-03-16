@@ -1,10 +1,9 @@
 package com.dillian.energymanagement.entities.building;
 
 import com.dillian.energymanagement.dtos.BuildingDTO;
-import com.dillian.energymanagement.mappers.BuildingMapper;
+import com.dillian.energymanagement.entities.BuildingVisitor;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,7 +12,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public abstract class Building {
 
     @Id
@@ -23,10 +21,6 @@ public abstract class Building {
     private int price;
     private String imageUri;
     private String category;
-    private boolean canBePurchased = true;
-    private boolean isPurchased = false;
 
-    public abstract BuildingDTO accept(BuildingMapper mapper);
-
-//    public abstract BuildingDTO foundBuildingToDTO(BuildingMapper mapper);
+    public abstract BuildingDTO accept(BuildingVisitor buildingVisitor);
 }

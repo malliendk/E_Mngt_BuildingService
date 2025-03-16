@@ -2,7 +2,7 @@ package com.dillian.energymanagement.entities.building;
 
 import com.dillian.energymanagement.dtos.BuildingDTO;
 import com.dillian.energymanagement.dtos.SolarPanelDTO;
-import com.dillian.energymanagement.mappers.BuildingMapper;
+import com.dillian.energymanagement.entities.BuildingVisitor;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -27,10 +27,9 @@ public class PublicBuilding extends Building {
 
 
     @Override
-    public BuildingDTO accept(BuildingMapper mapper) {
-        return mapper.publicBuildingToDTO(this);
+    public BuildingDTO accept(BuildingVisitor buildingVisitor) {
+        return buildingVisitor.forPublicBuilding(this);
     }
-
 //    @Override
 //    public BuildingDTO foundBuildingToDTO(BuildingMapper mapper) {
 //        return mapper.publicBuildingToDTO(this);

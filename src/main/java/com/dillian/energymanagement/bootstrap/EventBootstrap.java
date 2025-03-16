@@ -1,5 +1,6 @@
 package com.dillian.energymanagement.bootstrap;
 
+import com.dillian.energymanagement.bootstrap.building.SpecialBuildingBootstrap;
 import com.dillian.energymanagement.entities.Event;
 import com.dillian.energymanagement.entities.building.SpecialBuilding;
 import com.dillian.energymanagement.repositories.EventRepository;
@@ -8,9 +9,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class EventGenerator {
+public class EventBootstrap {
 
     private final EventRepository eventRepository;
+    private final SpecialBuildingBootstrap specialBuildingBootstrap;
 
     public Event createThemeParkEvent(SpecialBuilding themePark) {
         Event themeParkEvent = new Event();
@@ -22,7 +24,7 @@ public class EventGenerator {
         return themeParkEvent;
     }
 
-    public Event createEventAquaPark(SpecialBuilding aquaPark) {
+    public Event createAquaParkEvent(SpecialBuilding aquaPark) {
         Event aquaParkEvent = new Event();
         aquaParkEvent.setId(2L);
         aquaParkEvent.setName("Bouw van een tropisch zwemparadijs");
@@ -32,7 +34,7 @@ public class EventGenerator {
         return aquaParkEvent;
     }
 
-    public Event createEventShoppingResort(SpecialBuilding shoppingResort) {
+    public Event createShoppingResortEvent(SpecialBuilding shoppingResort) {
         Event shoppingResortEvent = new Event();
         shoppingResortEvent.setId(3L);
         shoppingResortEvent.setName("Aanleg van een shopping resort");
@@ -43,7 +45,7 @@ public class EventGenerator {
         return shoppingResortEvent;
     }
 
-    public Event createEventLaboratory(SpecialBuilding laboratory) {
+    public Event createLaboratoryEvent(SpecialBuilding laboratory) {
         Event laboratoryEvent = new Event();
         laboratoryEvent.setId(4L);
         laboratoryEvent.setName("Bouw van een laboratorium");
@@ -54,13 +56,15 @@ public class EventGenerator {
         return laboratoryEvent;
     }
 
-    public Event createEventSnowWorld(SpecialBuilding laboratory) {
+    public Event createSnowWorldEvent(SpecialBuilding snowWorld) {
         Event snowWorldEvent = new Event();
         snowWorldEvent.setId(5L);
         snowWorldEvent.setName("Bouw van een snow world");
         snowWorldEvent.setDescription("Een ondernemer wil een grootschalige Snow World vestigen aan de rand van de " +
                 "gemeente. Dit biedt inwoners en bezoekers het hele jaar door de mogelijkheid om te skiën en snowboarden.");
-        snowWorldEvent.setBuilding(laboratory);
+        snowWorldEvent.setBuilding(snowWorld);
         return snowWorldEvent;
     }
+
+    //aanleggen snelweg
 }

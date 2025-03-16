@@ -8,13 +8,12 @@ import lombok.Setter;
 public class BuildingDTO {
 
     private Long id;
+    private Long instanceId;
     private String name;
     private String description;
     private int price;
     private String imageUri;
     private String category;
-    private boolean canBePurchased;
-    private boolean isPurchased;
     private int gridCapacity;
     private int energyConsumption;
     private int energyProduction;
@@ -27,4 +26,5 @@ public class BuildingDTO {
     private SolarPanelDTO solarPanels;
     private int solarPanelAmount;
     private int solarPanelCapacity;
+
 }

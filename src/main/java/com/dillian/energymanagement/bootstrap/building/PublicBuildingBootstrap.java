@@ -60,6 +60,10 @@ public class PublicBuildingBootstrap {
         return library;
     }
 
+    private PublicBuilding createWinkelCentrum() {
+        return new PublicBuilding();
+    }
+
     private PublicBuilding createSwimmingPool() {
         PublicBuilding swimmingPool = new PublicBuilding();
         swimmingPool.setId(52L);

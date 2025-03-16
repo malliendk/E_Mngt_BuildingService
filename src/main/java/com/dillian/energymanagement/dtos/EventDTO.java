@@ -1,5 +1,6 @@
 package com.dillian.energymanagement.dtos;
 
+import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,8 +8,9 @@ import lombok.Setter;
 @Setter
 public class EventDTO {
 
-    Long id;
-    String name;
-    String description;
-    Long buildingId;
+    @Id
+    private Long id;
+    private String name;
+    private String description;
+    private BuildingDTO buildingDTO;
 }
