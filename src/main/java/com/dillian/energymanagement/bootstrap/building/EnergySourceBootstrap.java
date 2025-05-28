@@ -42,8 +42,6 @@ public class EnergySourceBootstrap {
         windMolenPark.setCategory(Constants.CATEGORY_ENERGY_PRODUCTION);
         windMolenPark.setImageUri("assets/photos/wind_park_2.png");
         windMolenPark.setEnergyProduction(750);
-        windMolenPark.setEnvironmentalScore(-10);
-        windMolenPark.setPopularityIncome(-10);
         return windMolenPark;
     }
 

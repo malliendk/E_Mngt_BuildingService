@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
@@ -22,8 +23,6 @@ public class EventController {
 
     private final ScheduledEventService scheduledEventService;
     private final EventService eventService;
-
-
 
 
     @GetMapping()
@@ -42,12 +41,24 @@ public class EventController {
         return scheduledEventService.subscribe();
     }
 
-//    /**
-//     * Optional: Endpoint to manually restart the event scheduler
-//     */
-//    @GetMapping("/restart-scheduler")
-//    public String restartScheduler() {
+    @PostMapping("stream/pause")
+    public String pauseScheduler() {
+        scheduledEventService.pauseUpdates();
+        return "Event scheduler restarted successfully";
+    }
+
+    @PostMapping("/resume")
+    public String resumeScheduler() {
+        scheduledEventService.resumeUpdates();
+        return "Event scheduler restarted successfully";
+    }
+
+    /**
+     * Optional: Endpoint to manually restart the event scheduler
+     */
+    @GetMapping("/restart")
+    public String restartScheduler() {
 //        eventService.startScheduler();
-//        return "Event scheduler restarted successfully";
-//    }
+        return "Event scheduler restarted successfully";
+    }
 }

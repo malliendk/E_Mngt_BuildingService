@@ -30,6 +30,7 @@ public class ScheduledEventService {
 
     private ScheduledExecutorService scheduler;
     private List<Event> initialEvents;
+    private boolean isPaused = false;
 
     public ScheduledEventService(final EventRepository eventRepository, final EventMapper eventMapper) {
         this.eventRepository = eventRepository;
@@ -45,9 +46,16 @@ public class ScheduledEventService {
     /**
      * Shuts down the current scheduler if it exists
      */
-    /**
-     * Shuts down the current scheduler if it exists
-     */
+
+    public synchronized void startScheduler() {
+        scheduler = Executors.newSingleThreadScheduledExecutor();
+        scheduler.scheduleAtFixedRate(this::sendGameUpdates,
+                Constants.EVENT_SCHEDULER_OFFSET_SECONDS,
+                Constants.EVENT_SCHEDULER_INTERVAL_SECONDS,
+                TimeUnit.SECONDS);
+        log.info("Game event scheduler has been started");
+    }
+
     public synchronized void shutdownScheduler() {
         if (scheduler != null && !scheduler.isShutdown()) {
             try {
@@ -62,19 +70,6 @@ public class ScheduledEventService {
                 log.error("Interrupted while shutting down scheduler", e);
             }
         }
-    }
-
-    /**
-     * Starts a new scheduler after shutting down any existing one
-     */
-    public synchronized void startScheduler() {
-        shutdownScheduler();
-        scheduler = Executors.newSingleThreadScheduledExecutor();
-        scheduler.scheduleAtFixedRate(this::sendGameUpdates,
-                Constants.EVENT_SCHEDULER_OFFSET_SECONDS,
-                Constants.EVENT_SCHEDULER_INTERVAL_SECONDS,
-                TimeUnit.SECONDS);
-        log.info("Game event scheduler has been started");
     }
 
     /**
@@ -114,11 +109,21 @@ public class ScheduledEventService {
         return emitter;
     }
 
+    public void pauseUpdates() {
+        isPaused = true;
+        log.info("Game event updates have been paused");
+    }
+
+    public void resumeUpdates() {
+        isPaused = false;
+        log.info("Game event updates have been resumed");
+    }
+
     /**
      * Sends game updates to all connected clients
      */
     private void sendGameUpdates() {
-        if (emitters.isEmpty()) {
+        if (isPaused || emitters.isEmpty()) {
             return;
         }
         List<SseEmitter> deadEmitters = new ArrayList<>();
@@ -126,7 +131,7 @@ public class ScheduledEventService {
             try {
                 final EventDTO eventDTO = selectRandomEvent();
                 emitDTO(emitter, eventDTO);
-                log.debug("Successfully sent game update to client");
+                log.info("Successfully sent game update to client");
             } catch (IOException e) {
                 deadEmitters.add(emitter);
                 log.error("Failed to send game update to client: {}", e.getMessage());
@@ -147,12 +152,14 @@ public class ScheduledEventService {
     }
 
     private EventDTO selectRandomEvent() {
-        if (this.initialEvents.isEmpty()) {
-            shutdownScheduler();
-        }
         int randomIndex = new Random().nextInt(this.initialEvents.size());
         Event selectedEvent = this.initialEvents.get(randomIndex);
         this.initialEvents.remove(selectedEvent);
+        if (this.initialEvents.isEmpty()) {
+            shutdownScheduler();
+        }
         return eventMapper.toDTO(selectedEvent);
     }
 }
+
+

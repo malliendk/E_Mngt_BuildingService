@@ -18,7 +18,7 @@ public class EventBootstrap {
         Event themeParkEvent = new Event();
         themeParkEvent.setId(1L);
         themeParkEvent.setName("Bouw van een pretpark");
-        themeParkEvent.setDescription("Een exploitant wil een pretpark bouwen aan de rand van je gemeente. " +
+        themeParkEvent.setDescription("Een exploitant wil een pretpark bouwen. " +
                 "Volgens de verstrekte onderzoeken is er onder je inwoners veel behoefte aan een pretpark .");
         themeParkEvent.setBuilding(themePark);
         return themeParkEvent;
@@ -38,8 +38,8 @@ public class EventBootstrap {
         Event shoppingResortEvent = new Event();
         shoppingResortEvent.setId(3L);
         shoppingResortEvent.setName("Aanleg van een shopping resort");
-        shoppingResortEvent.setDescription("Een ontwikkelaar wil een groot shopping resort realiseren een eind buiten je stad. " +
-                "Je inwoners zijn laaiend enthousiast en er wordt in de wijde omtrek reikhalzend uitgekeken naar de start van het" +
+        shoppingResortEvent.setDescription("Een ondernemerscollectief wil een groot shopping resort bouwen. " +
+                "Er wordt in de wijde omtrek reikhalzend uitgekeken naar de realisatie van het" +
                 "project.");
         shoppingResortEvent.setBuilding(shoppingResort);
         return shoppingResortEvent;
@@ -50,7 +50,7 @@ public class EventBootstrap {
         laboratoryEvent.setId(4L);
         laboratoryEvent.setName("Bouw van een laboratorium");
         laboratoryEvent.setDescription("Een organisatie heeft plannen om een geavanceerd onderzoekslaboratorium op te " +
-                "zetten aan de rand van de gemeente. Dit centrum zal bijdragen aan wetenschappelijke vooruitgang " +
+                "zetten. Dit centrum zal bijdragen aan wetenschappelijke vooruitgang " +
                 "en nieuwe innovaties.");
         laboratoryEvent.setBuilding(laboratory);
         return laboratoryEvent;

@@ -1,7 +1,6 @@
 package com.dillian.energymanagement.services;
 
 
-import com.dillian.energymanagement.Constants;
 import com.dillian.energymanagement.constants.BuildingIds;
 import com.dillian.energymanagement.constants.CategoryNames;
 import com.dillian.energymanagement.dtos.BuildingDTO;
@@ -9,6 +8,7 @@ import com.dillian.energymanagement.entities.building.Building;
 import com.dillian.energymanagement.mappers.BuildingMapperImpl;
 import com.dillian.energymanagement.repositories.*;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,6 +19,7 @@ import java.util.stream.Stream;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class BuildingService {
 
     private final BuildingMapperImpl dtoMapper;
@@ -28,6 +29,8 @@ public class BuildingService {
     private final PublicBuildingRepository publicBuildingRepository;
     private final PowerPlantRepository powerPlantRepository;
     private final IndustrialBuildingRepository industrialBuildingRepository;
+    private final SpecialBuildingsRepository specialBuildingsRepository;
+
 
     public List<BuildingDTO> findAll() {
         List<String> categoryOrder = List.of(CategoryNames.CATEGORY_HOUSING, CategoryNames.CATEGORY_PUBLIC_BUILDING,
@@ -39,17 +42,29 @@ public class BuildingService {
                         gridAssetRepository.findAll(),
                         publicBuildingRepository.findAll(),
                         powerPlantRepository.findAll(),
-                        industrialBuildingRepository.findAll()
+                        industrialBuildingRepository.findAll(),
+                        specialBuildingsRepository.findAll()
                 )
                 .flatMap(List::stream)
-                .filter(building -> !building.getId().equals(BuildingIds.COAL_PLANT) ||
-                        !building.getId().equals(BuildingIds.GAS_PLANT) ||
-                        !building.getId().equals(BuildingIds.TOWN_HALL))
                 .map(building -> building.accept(dtoMapper))
                 .sorted(Comparator.comparing((BuildingDTO b)
                                 -> categoryOrder.indexOf(b.getCategory()))
                         .thenComparing(BuildingDTO::getPrice)
                         .thenComparing(BuildingDTO::getSolarPanelAmount))
+                .toList();
+    }
+
+    public List<BuildingDTO> findAllPurchasable() {
+        return findAll().stream()
+                .filter(buildingDTO -> !buildingDTO.getCategory().equals(CategoryNames.CATEGORY_POWER_PLANT) &&
+                        !buildingDTO.getCategory().equals(CategoryNames.CATEGORY_SPECIAL_BUILDING) &&
+                        !buildingDTO.getId().equals(BuildingIds.TOWN_HALL))
+                .toList();
+    }
+
+    public List<BuildingDTO> findAllPowerPlants() {
+        return powerPlantRepository.findAll().stream()
+                .map(dtoMapper::toDTO)
                 .toList();
     }
 

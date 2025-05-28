@@ -5,17 +5,17 @@ import com.dillian.energymanagement.entities.building.*;
 
 public interface BuildingVisitor {
 
-    BuildingDTO visit(Housing housing);
+    BuildingDTO toDTO(Housing housing);
 
-    BuildingDTO forPublicBuilding(PublicBuilding publicBuilding);
+    BuildingDTO toDTO(PublicBuilding publicBuilding);
 
-    BuildingDTO visit(PowerPlant powerPlant);
+    BuildingDTO toDTO(PowerPlant powerPlant);
 
-    BuildingDTO visit(IndustrialBuilding industrialBuilding);
+    BuildingDTO toDTO(IndustrialBuilding industrialBuilding);
 
-    BuildingDTO visit(EnergySource energySource);
+    BuildingDTO toDTO(EnergySource energySource);
 
-    BuildingDTO visit(Utility utility);
+    BuildingDTO toDTO(Utility utility);
 
-    BuildingDTO visit(SpecialBuilding specialBuilding);
+    BuildingDTO toDTO(SpecialBuilding specialBuilding);
 }

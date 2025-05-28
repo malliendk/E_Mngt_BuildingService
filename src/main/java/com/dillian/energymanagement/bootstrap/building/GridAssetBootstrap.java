@@ -53,6 +53,7 @@ public class GridAssetBootstrap {
         hoogspanningsStation.setDescription("Schakel- en verdeelstation in het elektriciteitsnet " +
                 "dat elektrische energie transformeert tussen verschillende hoogspanningsniveaus " +
                 "en stroom verdeelt naar regionale netwerken.");
+        hoogspanningsStation.setImageUri("assets/photos/hoogspanningsstation-cut.jpg");
         hoogspanningsStation.setCategory(Constants.CATEGORY_GRID_ASSET);
         hoogspanningsStation.setPrice(1000);
         hoogspanningsStation.setGridCapacity(2000);
@@ -66,6 +67,7 @@ public class GridAssetBootstrap {
         hoogspanningsMast.setDescription("Grote metalen toren die gebruikt wordt om " +
                 "hoogspanningsleidingen boven de grond te dragen en elektriciteit " +
                 "over lange afstanden te transporteren.");
+        hoogspanningsMast.setImageUri("assets/photos/hoogspanningsmast.jpg");
         hoogspanningsMast.setCategory(Constants.CATEGORY_GRID_ASSET);
         hoogspanningsMast.setPrice(2000);
         hoogspanningsMast.setGridCapacity(5000);

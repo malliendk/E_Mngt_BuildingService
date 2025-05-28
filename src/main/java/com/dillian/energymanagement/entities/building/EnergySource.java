@@ -21,7 +21,7 @@ public class EnergySource extends Building {
 
     @Override
     public BuildingDTO accept(BuildingVisitor buildingVisitor) {
-        return buildingVisitor.visit(this);
+        return buildingVisitor.toDTO(this);
     }
 }
 

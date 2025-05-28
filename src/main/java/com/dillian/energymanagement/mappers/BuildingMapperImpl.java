@@ -10,35 +10,29 @@ import org.springframework.stereotype.Component;
 public class BuildingMapperImpl implements BuildingVisitor {
 
     @Override
-    public BuildingDTO forPublicBuilding(PublicBuilding publicBuilding) {
+    public BuildingDTO toDTO(PublicBuilding publicBuilding) {
         BuildingDTO buildingDTO = createWithGenericProperties(publicBuilding);
-        buildingDTO.setPopularityIncome(publicBuilding.getPopularityIncome());
-        int solarPanelAmount = publicBuilding.getSolarPanelAmount();
-        buildingDTO.setSolarPanelAmount(solarPanelAmount);
-        SolarPanelDTO solarPanelDTO;
-        if (publicBuilding.getSolarPanelSet() != null) {
-            solarPanelDTO = publicBuilding.getSolarPanelSet();
-            buildingDTO.setSolarPanels(publicBuilding.getSolarPanelSet());
-            buildingDTO.setEnergyProduction(solarPanelDTO.getEnergyProductionExtra() * solarPanelAmount);
-            buildingDTO.setGoldIncome(solarPanelDTO.getGoldIncomeExtra() * solarPanelAmount);
-            buildingDTO.setResearchIncome(solarPanelDTO.getResearchIncomeExtra() * solarPanelAmount);
-        } else {
-            buildingDTO.setResearchIncome(publicBuilding.getResearchIncome());
-        }
+        buildingDTO.setSolarPanels(new SolarPanelDTO());
         buildingDTO.setSolarPanelCapacity(publicBuilding.getSolarPanelCapacity());
+        buildingDTO.setSolarPanelAmount(publicBuilding.getSolarPanelAmount());
+        buildingDTO.setGoldIncome(publicBuilding.getGoldIncome());
+        buildingDTO.setPopularityIncome(publicBuilding.getPopularityIncome());
+        buildingDTO.setResearchIncome(publicBuilding.getResearchIncome());
+        buildingDTO.setEnergyProduction(publicBuilding.getEnergyProduction());
         buildingDTO.setEnergyConsumption(publicBuilding.getEnergyConsumption());
+        buildingDTO.setEnvironmentalScore(publicBuilding.getEnvironmentalScore());
         return buildingDTO;
     }
 
     @Override
-    public BuildingDTO visit(PowerPlant powerPlant) {
+    public BuildingDTO toDTO(PowerPlant powerPlant) {
         BuildingDTO buildingDTO = createWithGenericProperties(powerPlant);
         buildingDTO.setEnergyProduction(powerPlant.getEnergyProduction());
         return buildingDTO;
     }
 
     @Override
-    public BuildingDTO visit(IndustrialBuilding industrialBuilding) {
+    public BuildingDTO toDTO(IndustrialBuilding industrialBuilding) {
         BuildingDTO buildingDTO = createWithGenericProperties(industrialBuilding);
         buildingDTO.setEnergyConsumption(industrialBuilding.getEnergyConsumption());
         buildingDTO.setGoldIncome(industrialBuilding.getGoldIncome());
@@ -46,7 +40,7 @@ public class BuildingMapperImpl implements BuildingVisitor {
     }
 
     @Override
-    public BuildingDTO visit(EnergySource energySource) {
+    public BuildingDTO toDTO(EnergySource energySource) {
         BuildingDTO buildingDTO = createWithGenericProperties(energySource);
         buildingDTO.setEnergyProduction(energySource.getEnergyProduction());
         buildingDTO.setPopularityIncome(energySource.getPopularityIncome());
@@ -55,14 +49,14 @@ public class BuildingMapperImpl implements BuildingVisitor {
     }
 
     @Override
-    public BuildingDTO visit(Utility utility) {
+    public BuildingDTO toDTO(Utility utility) {
         BuildingDTO buildingDTO = createWithGenericProperties(utility);
         buildingDTO.setGridCapacity(utility.getGridCapacity());
         return buildingDTO;
     }
 
     @Override
-    public BuildingDTO visit(Housing housing) {
+    public BuildingDTO toDTO(Housing housing) {
         BuildingDTO buildingDTO = createWithGenericProperties(housing);
         buildingDTO.setHouseHolds(housing.getHouseHolds());
         if (housing.getSolarPanelSet() != null) {
@@ -83,12 +77,13 @@ public class BuildingMapperImpl implements BuildingVisitor {
     }
 
     @Override
-    public BuildingDTO visit(SpecialBuilding specialBuilding) {
+    public BuildingDTO toDTO(SpecialBuilding specialBuilding) {
         BuildingDTO buildingDTO = createWithGenericProperties(specialBuilding);
         buildingDTO.setEnergyConsumption(specialBuilding.getEnergyConsumption());
         buildingDTO.setResearchIncome(specialBuilding.getResearchIncome());
         buildingDTO.setPopularityIncome(specialBuilding.getPopularityIncome());
         buildingDTO.setGoldIncome(specialBuilding.getGoldIncome());
+        buildingDTO.setPopularityCost(specialBuilding.getPopularityCost());
         return buildingDTO;
     }
 

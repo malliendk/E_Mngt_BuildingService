@@ -5,22 +5,24 @@ import com.dillian.energymanagement.dtos.SolarPanelDTO;
 import com.dillian.energymanagement.entities.building.PublicBuilding;
 import com.dillian.energymanagement.repositories.PublicBuildingRepository;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class PublicBuildingBootstrap {
 
     private final PublicBuildingRepository publicBuildingRepository;
 
-    public void savePublicBuildings() {
+    public List<PublicBuilding> savePublicBuildings() {
         final PublicBuilding townHall = createTownhall();
         final PublicBuilding library = createLibrary();
         final PublicBuilding swimmingPool = createSwimmingPool();
         final PublicBuilding university = createUniversity();
-        publicBuildingRepository.saveAll(List.of(townHall, library, swimmingPool, university));
+        return publicBuildingRepository.saveAll(List.of(townHall, library, swimmingPool, university));
     }
 
     private PublicBuilding createTownhall() {
@@ -32,13 +34,15 @@ public class PublicBuildingBootstrap {
                 "zoals de burgemeester en wethouders werken");
         townHall.setCategory(Constants.CATEGORY_PUBLIC_BUILDING);
         townHall.setPrice(0);
-        townHall.setImageUri("url");
+        townHall.setImageUri("assets/photos/town-hall-outside-cut.png");
         townHall.setSolarPanelCapacity(100);
         townHall.setSolarPanelAmount(100);
         townHall.setSolarPanelSet(new SolarPanelDTO());
+        townHall.setEnergyProduction(500);
         townHall.setEnergyConsumption(100);
         townHall.setResearchIncome(0);
         townHall.setPopularityIncome(10);
+        townHall.setEnvironmentalScore(100);
         return townHall;
     }
 

@@ -2,6 +2,7 @@ package com.dillian.energymanagement.bootstrap;
 
 import com.dillian.energymanagement.bootstrap.building.*;
 import com.dillian.energymanagement.entities.Event;
+import com.dillian.energymanagement.entities.building.PublicBuilding;
 import com.dillian.energymanagement.entities.building.SpecialBuilding;
 import com.dillian.energymanagement.repositories.EventRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -50,7 +51,8 @@ public class Generator {
             gridAssetBootstrap.saveGridAssets();
             housingBootstrap.saveHousingBuildings();
             industrialBuildingBootstrap.saveIndustrialBuildings();
-            publicBuildingBootstrap.savePublicBuildings();
+            final List<PublicBuilding> buildings = publicBuildingBootstrap.savePublicBuildings();
+            buildings.forEach(building -> log.info(building.toString()));
             powerPlantBootstrap.savePowerPlants();
             specialBuildingsMap = specialBuildingBootstrap.saveSpecialBuildings();
             log.info("All buildings saved");

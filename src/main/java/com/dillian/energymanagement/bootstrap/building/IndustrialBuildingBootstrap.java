@@ -60,6 +60,7 @@ public class IndustrialBuildingBootstrap {
         industrialArea.setPrice(750);
         industrialArea.setEnergyConsumption(1350);
         industrialArea.setGoldIncome(56);
+        log.info("industrial area created with id: " + industrialArea.getId());
         return industrialArea;
     }
 }
