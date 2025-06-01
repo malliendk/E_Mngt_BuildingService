@@ -1,5 +1,6 @@
 package com.dillian.energymanagement.controllers;
 
+import com.dillian.energymanagement.dtos.AdjacencySet;
 import com.dillian.energymanagement.dtos.BuildingDTO;
 import com.dillian.energymanagement.services.BuildingService;
 import lombok.extern.slf4j.Slf4j;
@@ -42,6 +43,11 @@ public class BuildingController {
     @GetMapping("power-plants")
     public ResponseEntity<List<BuildingDTO>> findAllPowerPlants() {
         return ResponseEntity.ok(buildingService.findAllPowerPlants());
+    }
+
+    @GetMapping("adjacency-sets")
+    public ResponseEntity<List<AdjacencySet>> findAllAdjacencySets() {
+        return ResponseEntity.ok(buildingService.findAllAdjacencySets());
     }
 }
 

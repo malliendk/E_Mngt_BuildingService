@@ -1,6 +1,10 @@
 package com.dillian.energymanagement.bootstrap;
 
+import com.dillian.energymanagement.bootstrap.adjacency.Housing;
+import com.dillian.energymanagement.bootstrap.adjacency.Industrial;
+import com.dillian.energymanagement.bootstrap.adjacency.Science;
 import com.dillian.energymanagement.bootstrap.building.*;
+import com.dillian.energymanagement.dtos.AdjacencySet;
 import com.dillian.energymanagement.entities.Event;
 import com.dillian.energymanagement.entities.building.PublicBuilding;
 import com.dillian.energymanagement.entities.building.SpecialBuilding;
@@ -11,6 +15,7 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Stream;
 
 @Service
 @Slf4j
@@ -25,10 +30,14 @@ public class Generator {
     private final PowerPlantBootstrap powerPlantBootstrap;
     private final EventBootstrap eventBootstrap;
     private final EventRepository eventRepository;
+    private final Housing housingAdjacencySet;
+    private final Industrial industrialAdjacencySet;
+    private final Science scienceAdjacencySet;
+    private final Science science;
 
     private Map<String, SpecialBuilding> specialBuildingsMap = new HashMap<>();
 
-    public Generator(final EnergySourceBootstrap energySourceBootstrap, final GridAssetBootstrap gridAssetBootstrap, final HousingBootstrap housingBootstrap, final IndustrialBuildingBootstrap industrialBuildingBootstrap, final PublicBuildingBootstrap publicBuildingBootstrap, final SpecialBuildingBootstrap specialBuildingBootstrap, final PowerPlantBootstrap powerPlantBootstrap, final EventBootstrap eventBootstrap, final EventRepository eventRepository) {
+    public Generator(final EnergySourceBootstrap energySourceBootstrap, final GridAssetBootstrap gridAssetBootstrap, final HousingBootstrap housingBootstrap, final IndustrialBuildingBootstrap industrialBuildingBootstrap, final PublicBuildingBootstrap publicBuildingBootstrap, final SpecialBuildingBootstrap specialBuildingBootstrap, final PowerPlantBootstrap powerPlantBootstrap, final EventBootstrap eventBootstrap, final EventRepository eventRepository, final Housing housingAdjacencySet, final Industrial industrialAdjacencySet, final Science scienceAdjacencySet, final Science science) {
         this.energySourceBootstrap = energySourceBootstrap;
         this.gridAssetBootstrap = gridAssetBootstrap;
         this.housingBootstrap = housingBootstrap;
@@ -38,6 +47,10 @@ public class Generator {
         this.powerPlantBootstrap = powerPlantBootstrap;
         this.eventBootstrap = eventBootstrap;
         this.eventRepository = eventRepository;
+        this.housingAdjacencySet = housingAdjacencySet;
+        this.industrialAdjacencySet = industrialAdjacencySet;
+        this.scienceAdjacencySet = scienceAdjacencySet;
+        this.science = science;
     }
 
     public void saveBuildingsAndEvents() {
@@ -69,5 +82,16 @@ public class Generator {
         Event laboratory = eventBootstrap.createLaboratoryEvent(specialBuildingsMap.get("laboratory"));
         eventRepository.saveAll(List.of(aquaParkEvent, themeParkEvent, snowWorld, shoppingResort, laboratory));
         log.info("events successfully created");
+    }
+
+    public List<AdjacencySet> createAdjacencySets() {
+        return List.of(
+                        housingAdjacencySet.createHousingSets(),
+                        industrialAdjacencySet.createIndustrialSets(),
+                        scienceAdjacencySet.createScienceSets()
+                )
+                .stream()
+                .flatMap(List::stream)
+                .toList();
     }
 }

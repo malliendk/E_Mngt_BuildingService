@@ -66,5 +66,20 @@ public class EventBootstrap {
         return snowWorldEvent;
     }
 
+    public Event purchaseSolarPanelsVrijstaandHuis() {
+        return new Event();
+    }
+
+    public Event purchaseSolarPanelsTweeOnderEenKap() {
+        return new Event();
+    }
+
+    public Event purchaseSolarPanelsHuizenrij() {
+        return new Event();
+    }
+
+    public Event purchaseSolarPanelsAppartementencomplex() {
+        return new Event();
+    }
     //aanleggen snelweg
 }

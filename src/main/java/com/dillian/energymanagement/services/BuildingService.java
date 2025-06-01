@@ -1,8 +1,10 @@
 package com.dillian.energymanagement.services;
 
 
+import com.dillian.energymanagement.bootstrap.Generator;
 import com.dillian.energymanagement.constants.BuildingIds;
 import com.dillian.energymanagement.constants.CategoryNames;
+import com.dillian.energymanagement.dtos.AdjacencySet;
 import com.dillian.energymanagement.dtos.BuildingDTO;
 import com.dillian.energymanagement.entities.building.Building;
 import com.dillian.energymanagement.mappers.BuildingMapperImpl;
@@ -30,7 +32,7 @@ public class BuildingService {
     private final PowerPlantRepository powerPlantRepository;
     private final IndustrialBuildingRepository industrialBuildingRepository;
     private final SpecialBuildingsRepository specialBuildingsRepository;
-
+    private final Generator generator;
 
     public List<BuildingDTO> findAll() {
         List<String> categoryOrder = List.of(CategoryNames.CATEGORY_HOUSING, CategoryNames.CATEGORY_PUBLIC_BUILDING,
@@ -93,5 +95,9 @@ public class BuildingService {
                 .map(Optional::get)
                 .toList();
         return foundBuilding.getFirst().accept(dtoMapper);
+    }
+
+    public List<AdjacencySet> findAllAdjacencySets() {
+        return generator.createAdjacencySets();
     }
 }

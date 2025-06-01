@@ -32,9 +32,9 @@ public class HousingBootstrap {
         vrijstaandHuis.setPrice(100);
         vrijstaandHuis.setEnergyConsumption(100);
         vrijstaandHuis.setHouseHolds(1);
-        vrijstaandHuis.setGoldIncome(2);
-        vrijstaandHuis.setPopularityIncome(2);
-        vrijstaandHuis.setSolarPanelCapacity(2);
+        vrijstaandHuis.setGoldIncome(0);
+        vrijstaandHuis.setPopularityIncome(5);
+        vrijstaandHuis.setSolarPanelCapacity(15);
         vrijstaandHuis.setSolarPanelSet(new SolarPanelDTO());
         return vrijstaandHuis;
     }
@@ -49,9 +49,9 @@ public class HousingBootstrap {
         tweeOnderEenKap.setPrice(150);
         tweeOnderEenKap.setEnergyConsumption(175);
         tweeOnderEenKap.setHouseHolds(2);
-        tweeOnderEenKap.setGoldIncome(1);
-        tweeOnderEenKap.setPopularityIncome(1);
-        tweeOnderEenKap.setSolarPanelCapacity(1);
+        tweeOnderEenKap.setGoldIncome(0);
+        tweeOnderEenKap.setPopularityIncome(2);
+        tweeOnderEenKap.setSolarPanelCapacity(20);
         tweeOnderEenKap.setSolarPanelSet(new SolarPanelDTO());
         return tweeOnderEenKap;
     }
