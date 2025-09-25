@@ -28,6 +28,7 @@ public class GridAssetBootstrap {
         transformatorHuisje.setName("Transformatorhuisje");
         transformatorHuisje.setDescription("Elektriciteitsvoorziening die hoogspanning omzet naar een lagere" +
                 "spanning voor veilige distributie van elektriciteit");
+        transformatorHuisje.setImageUri("assets/photos/middenspannings_station.jpg");
         transformatorHuisje.setCategory(Constants.CATEGORY_GRID_ASSET);
         transformatorHuisje.setPrice(300);
         transformatorHuisje.setGridCapacity(500);
@@ -40,6 +41,7 @@ public class GridAssetBootstrap {
         middenspanningsStation.setName("Middenspanningsstation");
         middenspanningsStation.setDescription("Elektriciteitsvoorziening die hoogspanning " +
                 "omzet naar middenspanning en de stroom verder verdeelt naar lokale netwerken");
+        middenspanningsStation.setImageUri("assets/photos/transformator_huisje.jpg");
         middenspanningsStation.setCategory(Constants.CATEGORY_GRID_ASSET);
         middenspanningsStation.setPrice(550);
         middenspanningsStation.setGridCapacity(1000);

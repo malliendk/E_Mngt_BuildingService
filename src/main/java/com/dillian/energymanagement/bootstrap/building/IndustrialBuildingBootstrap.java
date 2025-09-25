@@ -42,6 +42,7 @@ public class IndustrialBuildingBootstrap {
         officeBuilding.setName("Kantoorcomplex");
         officeBuilding.setDescription("Groep van gebouwen met meerdere kantoorruimtes, bedoeld voor bedrijven, " +
                 "organisaties en andere zakelijke activiteiten.");
+        officeBuilding.setImageUri("assets/photos/kantoor-complex.jpg");
         officeBuilding.setCategory(Constants.CATEGORY_INDUSTRIAL);
         officeBuilding.setPrice(400);
         officeBuilding.setEnergyConsumption(1000);

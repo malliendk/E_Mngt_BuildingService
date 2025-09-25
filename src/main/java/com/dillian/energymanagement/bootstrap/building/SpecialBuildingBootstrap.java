@@ -71,6 +71,7 @@ public class SpecialBuildingBootstrap {
                 "waar bezoekers het hele jaar door kunnen skiën, " +
                 "snowboarden of andere winteractiviteiten doen,");
         snowWorld.setCategory(Constants.CATEGORY_SPECIAL_BUILDING);
+        snowWorld.setImageUri("assets/photos/snow-world.jpg");
         snowWorld.setPrice(2500);
         snowWorld.setEnergyConsumption(2250);
         snowWorld.setGoldIncome(120);
@@ -104,6 +105,7 @@ public class SpecialBuildingBootstrap {
                 "wetenschappelijk onderzoek en laboratoria, waar wetenschappelijk onderzoek wordt" +
                 "uitgevoerd met behulp van gespecialiseerde apparatuur en materialen.");
         laboratory.setCategory(Constants.CATEGORY_SPECIAL_BUILDING);
+        laboratory.setImageUri("assets/photos/laboratory.jpg");
         laboratory.setPrice(1500);
         laboratory.setGoldIncome(120);
         laboratory.setResearchIncome(80);

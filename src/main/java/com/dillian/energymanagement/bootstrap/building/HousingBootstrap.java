@@ -30,6 +30,7 @@ public class HousingBootstrap {
         vrijstaandHuis.setDescription("Woning die volledig vrijstaat van aangrenzende gebouwen,");
         vrijstaandHuis.setCategory(Constants.CATEGORY_HOUSING);
         vrijstaandHuis.setPrice(100);
+        vrijstaandHuis.setImageUri("assets/photos/vrijstaand-huis.jpg");
         vrijstaandHuis.setEnergyConsumption(100);
         vrijstaandHuis.setHouseHolds(1);
         vrijstaandHuis.setGoldIncome(0);

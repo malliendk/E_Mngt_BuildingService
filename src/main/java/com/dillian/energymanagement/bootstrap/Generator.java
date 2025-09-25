@@ -30,6 +30,7 @@ public class Generator {
     private final PowerPlantBootstrap powerPlantBootstrap;
     private final EventBootstrap eventBootstrap;
     private final EventRepository eventRepository;
+    private final SupervisorBootstrap supervisorBootstrap;
     private final Housing housingAdjacencySet;
     private final Industrial industrialAdjacencySet;
     private final Science scienceAdjacencySet;
@@ -37,7 +38,7 @@ public class Generator {
 
     private Map<String, SpecialBuilding> specialBuildingsMap = new HashMap<>();
 
-    public Generator(final EnergySourceBootstrap energySourceBootstrap, final GridAssetBootstrap gridAssetBootstrap, final HousingBootstrap housingBootstrap, final IndustrialBuildingBootstrap industrialBuildingBootstrap, final PublicBuildingBootstrap publicBuildingBootstrap, final SpecialBuildingBootstrap specialBuildingBootstrap, final PowerPlantBootstrap powerPlantBootstrap, final EventBootstrap eventBootstrap, final EventRepository eventRepository, final Housing housingAdjacencySet, final Industrial industrialAdjacencySet, final Science scienceAdjacencySet, final Science science) {
+    public Generator(final EnergySourceBootstrap energySourceBootstrap, final GridAssetBootstrap gridAssetBootstrap, final HousingBootstrap housingBootstrap, final IndustrialBuildingBootstrap industrialBuildingBootstrap, final PublicBuildingBootstrap publicBuildingBootstrap, final SpecialBuildingBootstrap specialBuildingBootstrap, final PowerPlantBootstrap powerPlantBootstrap, final EventBootstrap eventBootstrap, final EventRepository eventRepository, final SupervisorBootstrap supervisorBootstrap, final Housing housingAdjacencySet, final Industrial industrialAdjacencySet, final Science scienceAdjacencySet, final Science science) {
         this.energySourceBootstrap = energySourceBootstrap;
         this.gridAssetBootstrap = gridAssetBootstrap;
         this.housingBootstrap = housingBootstrap;
@@ -47,6 +48,7 @@ public class Generator {
         this.powerPlantBootstrap = powerPlantBootstrap;
         this.eventBootstrap = eventBootstrap;
         this.eventRepository = eventRepository;
+        this.supervisorBootstrap = supervisorBootstrap;
         this.housingAdjacencySet = housingAdjacencySet;
         this.industrialAdjacencySet = industrialAdjacencySet;
         this.scienceAdjacencySet = scienceAdjacencySet;
@@ -56,6 +58,7 @@ public class Generator {
     public void saveBuildingsAndEvents() {
         createAndSaveBuildings();
         createEvents();
+        createSupervisors();
     }
 
     private void createAndSaveBuildings() {
@@ -93,5 +96,9 @@ public class Generator {
                 .stream()
                 .flatMap(List::stream)
                 .toList();
+    }
+
+    private void createSupervisors() {
+        supervisorBootstrap.create();
     }
 }
