@@ -218,10 +218,42 @@ public class Housing {
                 +5,
                 false,
                 true);
+        AdjacencySet housingLibrary = new AdjacencySet(
+                "Appartementencomplex",
+                "Bibliotheek",
+                "popularityIncome",
+                +5,
+                false,
+                false
+        );
+        AdjacencySet housingLibrary2 = new AdjacencySet(
+                "Twee onder één kap",
+                "Bibliotheek",
+                "popularityIncome",
+                +5,
+                false,
+                false
+        );
+        AdjacencySet housingSwimmingPool = new AdjacencySet(
+                "Vrijstaand huis",
+                "Zwembad",
+                "popularityIncome",
+                +5,
+                false,
+                false
+        );
+        AdjacencySet housingSwimmingPool2 = new AdjacencySet(
+                "Huizenrij",
+                "Zwembad",
+                "popularityIncome",
+                +5,
+                false,
+                false
+        );
         return List.of(housingSet1, housingSet2, housingSet3, housingSet4, housingSet5, housingSet6, housingSet,
                 housingSet7, housingSet8, housingSet9, housingSet10, housingSet11, housingSet12, housingSet20,
                 housingSet13, housingSet14, housingSet15, housingSet16, housingSet17, housingSet18, housingSet100,
                 housingSet19, housingSet202, housingSet21, housingSet22, housingSet23, housingSet24, housingSet200,
-                housingSet300);
+                housingSet300, housingLibrary, housingLibrary2, housingSwimmingPool, housingSwimmingPool2);
     }
 }

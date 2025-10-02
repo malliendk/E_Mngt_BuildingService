@@ -21,6 +21,7 @@ public class BuildingMapperImpl implements BuildingVisitor {
         buildingDTO.setEnergyProduction(publicBuilding.getEnergyProduction());
         buildingDTO.setEnergyConsumption(publicBuilding.getEnergyConsumption());
         buildingDTO.setEnvironmentalScore(publicBuilding.getEnvironmentalScore());
+        buildingDTO.setHousingRequirement(publicBuilding.getHousingRequirement());
         return buildingDTO;
     }
 
@@ -58,7 +59,7 @@ public class BuildingMapperImpl implements BuildingVisitor {
     @Override
     public BuildingDTO toDTO(Housing housing) {
         BuildingDTO buildingDTO = createWithGenericProperties(housing);
-        buildingDTO.setHouseHolds(housing.getHouseHolds());
+        buildingDTO.setHousing(housing.getHousing());
         if (housing.getSolarPanelSet() != null) {
             SolarPanelDTO solarPanelSet = housing.getSolarPanelSet();
             buildingDTO.setSolarPanels(housing.getSolarPanelSet());

@@ -24,6 +24,7 @@ public class PublicBuilding extends Building {
     private int goldIncome;
     private int researchIncome;
     private int popularityIncome;
+    private int housingRequirement;
     private int solarPanelCapacity;
     private int solarPanelAmount;
     private int environmentalScore;

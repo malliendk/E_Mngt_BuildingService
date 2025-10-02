@@ -54,13 +54,14 @@ public class PublicBuildingBootstrap {
                 " en andere informatiebronnen beschikbaar zijn voor uitleen of studie");
         library.setCategory(Constants.CATEGORY_PUBLIC_BUILDING);
         library.setPrice(400);
-        library.setImageUri("url");
+        library.setImageUri("assets/photos/bibliotheek.png");
         library.setSolarPanelSet(new SolarPanelDTO());
         library.setSolarPanelCapacity(100);
         library.setSolarPanelAmount(0);
         library.setEnergyConsumption(150);
         library.setResearchIncome(12);
         library.setPopularityIncome(0);
+        library.setHousingRequirement(75);
         return library;
     }
 
@@ -75,13 +76,14 @@ public class PublicBuildingBootstrap {
         swimmingPool.setDescription("Waterinstallatie voor recreatief of sportief gebruik.");
         swimmingPool.setCategory(Constants.CATEGORY_PUBLIC_BUILDING);
         swimmingPool.setPrice(600);
-        swimmingPool.setImageUri("url");
+        swimmingPool.setImageUri("assets/photos/zwembad.jpg");
         swimmingPool.setSolarPanelSet(new SolarPanelDTO());
         swimmingPool.setSolarPanelCapacity(150);
         swimmingPool.setSolarPanelAmount(0);
         swimmingPool.setEnergyConsumption(500);
         swimmingPool.setResearchIncome(0);
         swimmingPool.setPopularityIncome(24);
+        swimmingPool.setHousingRequirement(150);
         return swimmingPool;
     }
 
@@ -93,12 +95,13 @@ public class PublicBuildingBootstrap {
                 "waar studenten academische opleidingen volgen en " +
                 "wetenschappelijk onderzoek wordt verricht in diverse disciplines");
         university.setCategory(Constants.CATEGORY_PUBLIC_BUILDING);
-        university.setImageUri("url");
+        university.setImageUri("assets/photos/universiteit.jpg");
         university.setPrice(900);
         university.setSolarPanelSet(new SolarPanelDTO());
         university.setEnergyConsumption(450);
         university.setResearchIncome(50);
         university.setSolarPanelCapacity(200);
+        university.setHousingRequirement(400);
         return university;
     }
 }

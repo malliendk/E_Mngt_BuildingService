@@ -29,7 +29,8 @@ public class EnergySourceBootstrap {
                 "duurzame elektriciteit opwekt met zonnepanelen");
         zonneWeide.setImageUri("assets/photos/solar_field.png");
         zonneWeide.setCategory(Constants.CATEGORY_ENERGY_PRODUCTION);
-        zonneWeide.setEnergyProduction(275);
+        zonneWeide.setEnergyProduction(400);
+        zonneWeide.setPrice(300);
         return zonneWeide;
     }
 
@@ -42,6 +43,7 @@ public class EnergySourceBootstrap {
         windMolenPark.setCategory(Constants.CATEGORY_ENERGY_PRODUCTION);
         windMolenPark.setImageUri("assets/photos/wind_park_2.png");
         windMolenPark.setEnergyProduction(750);
+        windMolenPark.setPrice(600);
         return windMolenPark;
     }
 
@@ -55,6 +57,7 @@ public class EnergySourceBootstrap {
         windParkOpZee.setImageUri("assets/photos/windpark_op_zee.png");
         windParkOpZee.setEnvironmentalScore(0);
         windParkOpZee.setEnergyProduction(1150);
+        windParkOpZee.setPrice(750);
         return windParkOpZee;
     }
 }

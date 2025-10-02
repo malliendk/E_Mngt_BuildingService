@@ -25,7 +25,7 @@ public class GridAssetBootstrap {
     private Utility createTransformatorHuisje() {
         Utility transformatorHuisje = new Utility();
         transformatorHuisje.setId(10L);
-        transformatorHuisje.setName("Transformatorhuisje");
+        transformatorHuisje.setName("Middenspanningsstation");
         transformatorHuisje.setDescription("Elektriciteitsvoorziening die hoogspanning omzet naar een lagere" +
                 "spanning voor veilige distributie van elektriciteit");
         transformatorHuisje.setImageUri("assets/photos/middenspannings_station.jpg");
@@ -38,7 +38,7 @@ public class GridAssetBootstrap {
     private Utility createMiddenspanningsStation() {
         Utility middenspanningsStation = new Utility();
         middenspanningsStation.setId(11L);
-        middenspanningsStation.setName("Middenspanningsstation");
+        middenspanningsStation.setName("Transformatorhuisje");
         middenspanningsStation.setDescription("Elektriciteitsvoorziening die hoogspanning " +
                 "omzet naar middenspanning en de stroom verder verdeelt naar lokale netwerken");
         middenspanningsStation.setImageUri("assets/photos/transformator_huisje.jpg");

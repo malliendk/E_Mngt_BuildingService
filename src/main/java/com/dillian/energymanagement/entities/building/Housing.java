@@ -19,7 +19,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Housing extends Building {
 
-    private int houseHolds;
+    private int housing;
     private int energyConsumption;
     private int goldIncome;
     private int popularityIncome;

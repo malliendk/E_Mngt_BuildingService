@@ -56,9 +56,9 @@ public class EventController {
     /**
      * Optional: Endpoint to manually restart the event scheduler
      */
-    @GetMapping("/restart")
-    public String restartScheduler() {
-//        eventService.startScheduler();
+    @GetMapping("/shutdown")
+    public String shutdownScheduler() {
+        scheduledEventService.shutdownScheduler();
         return "Event scheduler restarted successfully";
     }
 }

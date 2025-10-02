@@ -83,11 +83,13 @@ public class ScheduledEventService {
             emitters.remove(emitter);
             log.info("SSE connection closed. Total active connections: {}", emitters.size());
         });
+
         emitter.onTimeout(() -> {
             emitter.complete();
             emitters.remove(emitter);
             log.info("SSE connection timed out. Total active connections: {}", emitters.size());
         });
+
         emitter.onError(ex -> {
             emitter.completeWithError(ex);
             emitters.remove(emitter);
@@ -95,9 +97,9 @@ public class ScheduledEventService {
         });
 
         try {
-            final EventDTO eventDTO = selectRandomEvent();
-            emitDTO(emitter, eventDTO);
-            log.info("Initial game data successfully sent to client");
+            final EventDTO initialEvent = selectRandomEvent(); // Of een andere methode zoals createInitialEvent()
+            emitDTO(emitter, initialEvent);
+            log.info("Initial event successfully sent to client");
         } catch (IOException e) {
             emitter.completeWithError(e);
             return emitter;

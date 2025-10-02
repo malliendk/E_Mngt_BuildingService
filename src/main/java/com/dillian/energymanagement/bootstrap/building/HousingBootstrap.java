@@ -32,7 +32,7 @@ public class HousingBootstrap {
         vrijstaandHuis.setPrice(100);
         vrijstaandHuis.setImageUri("assets/photos/vrijstaand-huis.jpg");
         vrijstaandHuis.setEnergyConsumption(100);
-        vrijstaandHuis.setHouseHolds(1);
+        vrijstaandHuis.setHousing(1);
         vrijstaandHuis.setGoldIncome(0);
         vrijstaandHuis.setPopularityIncome(5);
         vrijstaandHuis.setSolarPanelCapacity(15);
@@ -46,10 +46,11 @@ public class HousingBootstrap {
         tweeOnderEenKap.setName("Twee onder één kap");
         tweeOnderEenKap.setDescription("Dubbelhuis waarbij twee afzonderlijke woningen met " +
                 "een gedeelde tussenmuur één bouwstructuur vormen,");
+        tweeOnderEenKap.setImageUri("assets/photos/twee-onder-een-kap.jpg");
         tweeOnderEenKap.setCategory(Constants.CATEGORY_HOUSING);
         tweeOnderEenKap.setPrice(150);
         tweeOnderEenKap.setEnergyConsumption(175);
-        tweeOnderEenKap.setHouseHolds(2);
+        tweeOnderEenKap.setHousing(2);
         tweeOnderEenKap.setGoldIncome(0);
         tweeOnderEenKap.setPopularityIncome(2);
         tweeOnderEenKap.setSolarPanelCapacity(20);
@@ -62,10 +63,11 @@ public class HousingBootstrap {
         apartmentBuilding.setId(22L);
         apartmentBuilding.setName("Apparementencomplex");
         apartmentBuilding.setDescription("Gebouw met meerdere zelfstandige wooneenheden");
+        apartmentBuilding.setImageUri("assets/photos/appartementen-complex.png");
         apartmentBuilding.setCategory(Constants.CATEGORY_HOUSING);
         apartmentBuilding.setPrice(1250);
         apartmentBuilding.setEnergyConsumption(1625);
-        apartmentBuilding.setHouseHolds(25);
+        apartmentBuilding.setHousing(25);
         apartmentBuilding.setSolarPanelCapacity(15);
         apartmentBuilding.setSolarPanelSet(new SolarPanelDTO());
         return apartmentBuilding;
@@ -77,10 +79,11 @@ public class HousingBootstrap {
         huizenRij.setName("Huizenrij");
         huizenRij.setDescription("Aaneengesloten reeks van meerdere identieke of vergelijkbare " +
                 "woningen die een gemeenschappelijke zijmuren delen");
+        huizenRij.setImageUri("assets/photos/huizenrij.jpg");
         huizenRij.setCategory(Constants.CATEGORY_HOUSING);
         huizenRij.setPrice(750);
         huizenRij.setEnergyConsumption(800);
-        huizenRij.setHouseHolds(10);
+        huizenRij.setHousing(10);
         huizenRij.setSolarPanelSet(new SolarPanelDTO());
         huizenRij.setSolarPanelCapacity(10);
         return huizenRij;
