@@ -12,9 +12,6 @@ public class BuildingMapperImpl implements BuildingVisitor {
     @Override
     public BuildingDTO toDTO(PublicBuilding publicBuilding) {
         BuildingDTO buildingDTO = createWithGenericProperties(publicBuilding);
-        buildingDTO.setSolarPanels(new SolarPanelDTO());
-        buildingDTO.setSolarPanelCapacity(publicBuilding.getSolarPanelCapacity());
-        buildingDTO.setSolarPanelAmount(publicBuilding.getSolarPanelAmount());
         buildingDTO.setGoldIncome(publicBuilding.getGoldIncome());
         buildingDTO.setPopularityIncome(publicBuilding.getPopularityIncome());
         buildingDTO.setResearchIncome(publicBuilding.getResearchIncome());
@@ -22,6 +19,7 @@ public class BuildingMapperImpl implements BuildingVisitor {
         buildingDTO.setEnergyConsumption(publicBuilding.getEnergyConsumption());
         buildingDTO.setEnvironmentalScore(publicBuilding.getEnvironmentalScore());
         buildingDTO.setHousingRequirement(publicBuilding.getHousingRequirement());
+        buildingDTO.setCanBePurchased(publicBuilding.isCanBePurchased());
         return buildingDTO;
     }
 
@@ -62,7 +60,6 @@ public class BuildingMapperImpl implements BuildingVisitor {
         buildingDTO.setHousing(housing.getHousing());
         if (housing.getSolarPanelSet() != null) {
             SolarPanelDTO solarPanelSet = housing.getSolarPanelSet();
-            buildingDTO.setSolarPanels(housing.getSolarPanelSet());
             buildingDTO.setEnergyProduction(housing.getSolarPanelAmount() * solarPanelSet.getEnergyProductionExtra());
             buildingDTO.setGoldIncome(housing.getGoldIncome() * solarPanelSet.getGoldIncomeExtra());
             buildingDTO.setResearchIncome(housing.getSolarPanelAmount() * solarPanelSet.getResearchIncomeExtra());
@@ -72,8 +69,6 @@ public class BuildingMapperImpl implements BuildingVisitor {
         }
         buildingDTO.setEnergyConsumption(housing.getEnergyConsumption());
         buildingDTO.setPopularityIncome(housing.getPopularityIncome());
-        buildingDTO.setSolarPanelAmount(housing.getSolarPanelAmount());
-        buildingDTO.setSolarPanelCapacity(housing.getSolarPanelCapacity());
         return buildingDTO;
     }
 

@@ -10,13 +10,13 @@ public class SupervisorMapper {
     public SupervisorDTO toDto(Supervisor supervisor) {
         SupervisorDTO dto = new SupervisorDTO();
         dto.setId(supervisor.getId());
+        dto.setInstanceId(supervisor.getInstanceId());
         dto.setName(supervisor.getName());
         dto.setImageUrl(supervisor.getImageUrl());
         dto.setBiography(supervisor.getBiography());
         dto.setClassType(supervisor.getClassType());
         dto.setType(supervisor.getType());
         dto.setSpecialAbility(supervisor.getSpecialAbility());
-        dto.setPerkGoldIncome(supervisor.getPerkGoldIncome());
         dto.setPerkGoldIncome(supervisor.getPerkGoldIncome());
         dto.setPerkPopularityIncome(supervisor.getPerkPopularityIncome());
         dto.setPerkPopularityCost(supervisor.getPerkPopularityCost());
@@ -30,6 +30,7 @@ public class SupervisorMapper {
     public Supervisor toEntity(SupervisorDTO dto) {
         Supervisor supervisor = new Supervisor();
         supervisor.setId(dto.getId());
+        supervisor.setInstanceId(dto.getInstanceId());
         supervisor.setName(dto.getName());
         supervisor.setImageUrl(dto.getImageUrl());
         supervisor.setBiography(dto.getBiography());

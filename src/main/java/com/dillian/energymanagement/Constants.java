@@ -19,4 +19,6 @@ public class Constants {
 
     public static final int EVENT_SCHEDULER_OFFSET_SECONDS = 0;
     public static final int EVENT_SCHEDULER_INTERVAL_SECONDS = 300;
+
+    public static final String CALCULATION_SERVICE_SAVE_URL = "http://localhost:8093/save-game";
 }

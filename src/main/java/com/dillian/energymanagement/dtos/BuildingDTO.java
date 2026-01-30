@@ -23,8 +23,6 @@ public class BuildingDTO {
     private int researchIncome;
     private int popularityCost;
     private int environmentalScore;
-    private SolarPanelDTO solarPanels;
-    private int solarPanelAmount;
-    private int solarPanelCapacity;
     private int housingRequirement;
+    private boolean canBePurchased;
 }

@@ -23,6 +23,7 @@ public abstract class Building {
     private int price;
     private String imageUri;
     private String category;
+    private boolean canBePurchased;
 
     public abstract BuildingDTO accept(BuildingVisitor buildingVisitor);
 }

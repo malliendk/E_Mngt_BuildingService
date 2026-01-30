@@ -25,26 +25,28 @@ public class GridAssetBootstrap {
     private Utility createTransformatorHuisje() {
         Utility transformatorHuisje = new Utility();
         transformatorHuisje.setId(10L);
-        transformatorHuisje.setName("Middenspanningsstation");
+        transformatorHuisje.setName("Transformatorhuisje");
         transformatorHuisje.setDescription("Elektriciteitsvoorziening die hoogspanning omzet naar een lagere" +
                 "spanning voor veilige distributie van elektriciteit");
-        transformatorHuisje.setImageUri("assets/photos/middenspannings_station.jpg");
+        transformatorHuisje.setImageUri("assets/photos/transformator_huisje.jpg");
         transformatorHuisje.setCategory(Constants.CATEGORY_GRID_ASSET);
         transformatorHuisje.setPrice(300);
         transformatorHuisje.setGridCapacity(500);
+        transformatorHuisje.setCanBePurchased(true);
         return transformatorHuisje;
     }
 
     private Utility createMiddenspanningsStation() {
         Utility middenspanningsStation = new Utility();
         middenspanningsStation.setId(11L);
-        middenspanningsStation.setName("Transformatorhuisje");
+        middenspanningsStation.setName("Middenspanningsstation");
         middenspanningsStation.setDescription("Elektriciteitsvoorziening die hoogspanning " +
                 "omzet naar middenspanning en de stroom verder verdeelt naar lokale netwerken");
-        middenspanningsStation.setImageUri("assets/photos/transformator_huisje.jpg");
+        middenspanningsStation.setImageUri("assets/photos/middenspannings_station.jpg");
         middenspanningsStation.setCategory(Constants.CATEGORY_GRID_ASSET);
         middenspanningsStation.setPrice(550);
         middenspanningsStation.setGridCapacity(1000);
+        middenspanningsStation.setCanBePurchased(true);
         return middenspanningsStation;
     }
 
@@ -59,6 +61,7 @@ public class GridAssetBootstrap {
         hoogspanningsStation.setCategory(Constants.CATEGORY_GRID_ASSET);
         hoogspanningsStation.setPrice(1000);
         hoogspanningsStation.setGridCapacity(2000);
+        hoogspanningsStation.setCanBePurchased(true);
         return hoogspanningsStation;
     }
 
@@ -73,6 +76,7 @@ public class GridAssetBootstrap {
         hoogspanningsMast.setCategory(Constants.CATEGORY_GRID_ASSET);
         hoogspanningsMast.setPrice(2000);
         hoogspanningsMast.setGridCapacity(5000);
+        hoogspanningsMast.setCanBePurchased(true);
         return hoogspanningsMast;
     }
 }

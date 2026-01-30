@@ -33,6 +33,7 @@ public class IndustrialBuildingBootstrap {
         parkeergarage.setPrice(250);
         parkeergarage.setEnergyConsumption(800);
         parkeergarage.setGoldIncome(18);
+        parkeergarage.setCanBePurchased(true);
         return parkeergarage;
     }
 
@@ -47,6 +48,7 @@ public class IndustrialBuildingBootstrap {
         officeBuilding.setPrice(400);
         officeBuilding.setEnergyConsumption(1000);
         officeBuilding.setGoldIncome(30);
+        officeBuilding.setCanBePurchased(true);
         return officeBuilding;
     }
 
@@ -62,6 +64,7 @@ public class IndustrialBuildingBootstrap {
         industrialArea.setEnergyConsumption(1350);
         industrialArea.setGoldIncome(56);
         log.info("industrial area created with id: " + industrialArea.getId());
+        industrialArea.setCanBePurchased(true);
         return industrialArea;
     }
 }

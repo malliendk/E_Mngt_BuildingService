@@ -31,6 +31,7 @@ public class EnergySourceBootstrap {
         zonneWeide.setCategory(Constants.CATEGORY_ENERGY_PRODUCTION);
         zonneWeide.setEnergyProduction(400);
         zonneWeide.setPrice(300);
+        zonneWeide.setCanBePurchased(true);
         return zonneWeide;
     }
 
@@ -44,6 +45,7 @@ public class EnergySourceBootstrap {
         windMolenPark.setImageUri("assets/photos/wind_park_2.png");
         windMolenPark.setEnergyProduction(750);
         windMolenPark.setPrice(600);
+        windMolenPark.setCanBePurchased(true);
         return windMolenPark;
     }
 
@@ -58,6 +60,7 @@ public class EnergySourceBootstrap {
         windParkOpZee.setEnvironmentalScore(0);
         windParkOpZee.setEnergyProduction(1150);
         windParkOpZee.setPrice(750);
+        windParkOpZee.setCanBePurchased(true);
         return windParkOpZee;
     }
 }

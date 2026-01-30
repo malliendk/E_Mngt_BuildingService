@@ -32,6 +32,7 @@ public class PowerPlantBootstrap {
         coalPlant.setPrice(0);
         coalPlant.setImageUri("assets/photos/coal_plant.png");
         coalPlant.setEnergyProduction(5000);
+        coalPlant.setCanBePurchased(false);
         return coalPlant;
     }
 
@@ -45,6 +46,7 @@ public class PowerPlantBootstrap {
         gasPlant.setPrice(0);
         gasPlant.setImageUri("assets/photos/gas_plant.png");
         gasPlant.setEnergyProduction(5000);
+        gasPlant.setCanBePurchased(false);
         return gasPlant;
     }
 
@@ -56,6 +58,7 @@ public class PowerPlantBootstrap {
                 "gebruikt om elektriciteit op te wekken en die vaste waterstof produceert" +
                 "als brandstof voor mobiele voertuigen");
         hydrogenPlant.setCategory(Constants.CATEGORY_POWER_PLANT);
+        hydrogenPlant.setCanBePurchased(false);
         return hydrogenPlant;
     }
 
@@ -66,6 +69,7 @@ public class PowerPlantBootstrap {
         nuclearPlant.setDescription("Energiecentrale die elektriciteit opwekt door kernsplijting of kernfusie");
         nuclearPlant.setCategory(Constants.CATEGORY_POWER_PLANT);
         nuclearPlant.setImageUri("assets/photos/nuclear-plant.webp");
+        nuclearPlant.setCanBePurchased(false);
         return nuclearPlant;
     }
 }

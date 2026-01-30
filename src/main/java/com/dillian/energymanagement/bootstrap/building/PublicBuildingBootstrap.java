@@ -36,13 +36,13 @@ public class PublicBuildingBootstrap {
         townHall.setPrice(0);
         townHall.setImageUri("assets/photos/town-hall-outside-cut.png");
         townHall.setSolarPanelCapacity(100);
-        townHall.setSolarPanelAmount(100);
-        townHall.setSolarPanelSet(new SolarPanelDTO());
         townHall.setEnergyProduction(500);
         townHall.setEnergyConsumption(100);
+        townHall.setGoldIncome(50);
         townHall.setResearchIncome(0);
         townHall.setPopularityIncome(10);
         townHall.setEnvironmentalScore(100);
+        townHall.setCanBePurchased(false);
         return townHall;
     }
 
@@ -62,6 +62,7 @@ public class PublicBuildingBootstrap {
         library.setResearchIncome(12);
         library.setPopularityIncome(0);
         library.setHousingRequirement(75);
+        library.setCanBePurchased(true);
         return library;
     }
 
@@ -84,6 +85,7 @@ public class PublicBuildingBootstrap {
         swimmingPool.setResearchIncome(0);
         swimmingPool.setPopularityIncome(24);
         swimmingPool.setHousingRequirement(150);
+        swimmingPool.setCanBePurchased(true);
         return swimmingPool;
     }
 
@@ -101,7 +103,8 @@ public class PublicBuildingBootstrap {
         university.setEnergyConsumption(450);
         university.setResearchIncome(50);
         university.setSolarPanelCapacity(200);
-        university.setHousingRequirement(400);
+        university.setHousingRequirement(250);
+        university.setCanBePurchased(true);
         return university;
     }
 }

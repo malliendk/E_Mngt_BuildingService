@@ -51,8 +51,7 @@ public class BuildingService {
                 .map(building -> building.accept(dtoMapper))
                 .sorted(Comparator.comparing((BuildingDTO b)
                                 -> categoryOrder.indexOf(b.getCategory()))
-                        .thenComparing(BuildingDTO::getPrice)
-                        .thenComparing(BuildingDTO::getSolarPanelAmount))
+                        .thenComparing(BuildingDTO::getPrice))
                 .toList();
     }
 

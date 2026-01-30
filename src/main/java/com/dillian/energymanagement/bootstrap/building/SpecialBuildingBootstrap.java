@@ -43,6 +43,7 @@ public class SpecialBuildingBootstrap {
         aquaPark.setEnergyConsumption(2000);
         aquaPark.setPopularityIncome(60);
         aquaPark.setPopularityCost(1500);
+        aquaPark.setCanBePurchased(false);
         return aquaPark;
     }
 
@@ -60,6 +61,7 @@ public class SpecialBuildingBootstrap {
         themePark.setGoldIncome(75);
         themePark.setPopularityIncome(80);
         themePark.setPopularityCost(2000);
+        themePark.setCanBePurchased(false);
         return themePark;
     }
 
@@ -77,6 +79,7 @@ public class SpecialBuildingBootstrap {
         snowWorld.setGoldIncome(120);
         snowWorld.setPopularityIncome(75);
         snowWorld.setPopularityCost(1750);
+        snowWorld.setCanBePurchased(false);
         return snowWorld;
     }
 
@@ -94,6 +97,7 @@ public class SpecialBuildingBootstrap {
         shoppingResort.setGoldIncome(160);
         shoppingResort.setPopularityIncome(135);
         shoppingResort.setPopularityCost(2500);
+        shoppingResort.setCanBePurchased(false);
         return shoppingResort;
     }
 
@@ -111,6 +115,7 @@ public class SpecialBuildingBootstrap {
         laboratory.setResearchIncome(80);
         laboratory.setEnergyConsumption(3000);
         laboratory.setPopularityCost(2250);
+        laboratory.setCanBePurchased(false);
         return laboratory;
     }
 }

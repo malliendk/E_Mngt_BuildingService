@@ -33,10 +33,11 @@ public class HousingBootstrap {
         vrijstaandHuis.setImageUri("assets/photos/vrijstaand-huis.jpg");
         vrijstaandHuis.setEnergyConsumption(100);
         vrijstaandHuis.setHousing(1);
-        vrijstaandHuis.setGoldIncome(0);
-        vrijstaandHuis.setPopularityIncome(5);
+        vrijstaandHuis.setGoldIncome(2);
+        vrijstaandHuis.setPopularityIncome(3);
         vrijstaandHuis.setSolarPanelCapacity(15);
         vrijstaandHuis.setSolarPanelSet(new SolarPanelDTO());
+        vrijstaandHuis.setCanBePurchased(true);
         return vrijstaandHuis;
     }
 
@@ -44,17 +45,16 @@ public class HousingBootstrap {
         Housing tweeOnderEenKap = new Housing();
         tweeOnderEenKap.setId(21L);
         tweeOnderEenKap.setName("Twee onder één kap");
-        tweeOnderEenKap.setDescription("Dubbelhuis waarbij twee afzonderlijke woningen met " +
+        tweeOnderEenKap.setDescription("Dubbel huis waarbij twee afzonderlijke woningen met " +
                 "een gedeelde tussenmuur één bouwstructuur vormen,");
         tweeOnderEenKap.setImageUri("assets/photos/twee-onder-een-kap.jpg");
         tweeOnderEenKap.setCategory(Constants.CATEGORY_HOUSING);
         tweeOnderEenKap.setPrice(150);
         tweeOnderEenKap.setEnergyConsumption(175);
         tweeOnderEenKap.setHousing(2);
-        tweeOnderEenKap.setGoldIncome(0);
+        tweeOnderEenKap.setGoldIncome(1);
         tweeOnderEenKap.setPopularityIncome(2);
-        tweeOnderEenKap.setSolarPanelCapacity(20);
-        tweeOnderEenKap.setSolarPanelSet(new SolarPanelDTO());
+        tweeOnderEenKap.setCanBePurchased(true);
         return tweeOnderEenKap;
     }
 
@@ -68,8 +68,7 @@ public class HousingBootstrap {
         apartmentBuilding.setPrice(1250);
         apartmentBuilding.setEnergyConsumption(1625);
         apartmentBuilding.setHousing(25);
-        apartmentBuilding.setSolarPanelCapacity(15);
-        apartmentBuilding.setSolarPanelSet(new SolarPanelDTO());
+        apartmentBuilding.setCanBePurchased(true);
         return apartmentBuilding;
     }
 
@@ -84,8 +83,7 @@ public class HousingBootstrap {
         huizenRij.setPrice(750);
         huizenRij.setEnergyConsumption(800);
         huizenRij.setHousing(10);
-        huizenRij.setSolarPanelSet(new SolarPanelDTO());
-        huizenRij.setSolarPanelCapacity(10);
+        huizenRij.setCanBePurchased(true);
         return huizenRij;
     }
 }

@@ -8,6 +8,7 @@ import lombok.Setter;
 public class SupervisorDTO {
 
     private Long id;
+    private int instanceId;
     private String name;
     private String imageUrl;
     private String biography;
