@@ -18,6 +18,7 @@ public abstract class Building {
 
     @Id
     private Long id;
+    private int instanceId;
     private String name;
     private String description;
     private int price;

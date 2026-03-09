@@ -1,7 +1,6 @@
 package com.dillian.energymanagement.services
 
 import com.dillian.energymanagement.dtos.SaveGameDTO
-import com.dillian.energymanagement.entities.SaveGame
 import com.dillian.energymanagement.mappers.SaveGameMapper
 import com.dillian.energymanagement.repositories.SaveGameRepository
 import org.springframework.stereotype.Service

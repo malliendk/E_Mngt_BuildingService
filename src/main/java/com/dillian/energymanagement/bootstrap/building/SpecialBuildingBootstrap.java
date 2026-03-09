@@ -37,7 +37,7 @@ public class SpecialBuildingBootstrap {
         aquaPark.setId(60L);
         aquaPark.setName("Tropisch zwemparadijs");
         aquaPark.setDescription("recreatieve zwemlocatie die is ingericht met tropische thema's" );
-        aquaPark.setCategory(Constants.CATEGORY_SPECIAL_BUILDING);
+        aquaPark.setCategory(Constants.CATEGORY_CITY_HIGHLIGHT);
         aquaPark.setPrice(2500);
         aquaPark.setImageUri("assets/photos/tropisch-zwemparadijs.png");
         aquaPark.setEnergyConsumption(2000);
@@ -54,7 +54,7 @@ public class SpecialBuildingBootstrap {
         themePark.setDescription("recreatiepark met diverse attracties, " +
                 "zoals achtbanen, draaimolens en waterattracties, ontworpen voor vermaak " +
                 "en avontuur voor bezoekers van alle leeftijden.");
-        themePark.setCategory(Constants.CATEGORY_SPECIAL_BUILDING);
+        themePark.setCategory(Constants.CATEGORY_CITY_HIGHLIGHT);
         themePark.setPrice(1500);
         themePark.setImageUri("assets/photos/theme-park.png");
         themePark.setEnergyConsumption(2000);
@@ -72,7 +72,7 @@ public class SpecialBuildingBootstrap {
         snowWorld.setDescription("Overdekt skigebied of wintersportcentrum, " +
                 "waar bezoekers het hele jaar door kunnen skiën, " +
                 "snowboarden of andere winteractiviteiten doen,");
-        snowWorld.setCategory(Constants.CATEGORY_SPECIAL_BUILDING);
+        snowWorld.setCategory(Constants.CATEGORY_CITY_HIGHLIGHT);
         snowWorld.setImageUri("assets/photos/snow-world.jpg");
         snowWorld.setPrice(2500);
         snowWorld.setEnergyConsumption(2250);
@@ -90,7 +90,7 @@ public class SpecialBuildingBootstrap {
         shoppingResort.setDescription("Uitgebreid winkelcentrum dat naast winkels ook andere" +
                 " recreatieve voorzieningen biedt, zoals restaurants, entertainment, hotels " +
                 "en wellnessfaciliteiten,");
-        shoppingResort.setCategory(Constants.CATEGORY_SPECIAL_BUILDING);
+        shoppingResort.setCategory(Constants.CATEGORY_CITY_HIGHLIGHT);
         shoppingResort.setPrice(3000);
         shoppingResort.setImageUri("assets/photos/shopping-resort.png");
         shoppingResort.setEnergyConsumption(5000);
@@ -108,7 +108,7 @@ public class SpecialBuildingBootstrap {
         laboratory.setDescription("gebouw dat volledig is ingericht voor " +
                 "wetenschappelijk onderzoek en laboratoria, waar wetenschappelijk onderzoek wordt" +
                 "uitgevoerd met behulp van gespecialiseerde apparatuur en materialen.");
-        laboratory.setCategory(Constants.CATEGORY_SPECIAL_BUILDING);
+        laboratory.setCategory(Constants.CATEGORY_CITY_HIGHLIGHT);
         laboratory.setImageUri("assets/photos/laboratory.jpg");
         laboratory.setPrice(1500);
         laboratory.setGoldIncome(120);

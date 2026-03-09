@@ -1,14 +1,15 @@
-package com.dillian.energymanagement.dtos;
+package com.dillian.energymanagement.entities;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
-public class BuildingDTO {
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+public class BuildingInGame {
 
     private Long id;
-    private Long instanceId;
     private String name;
     private boolean canBePurchased;
     private String category;

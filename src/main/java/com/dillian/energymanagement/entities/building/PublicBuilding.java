@@ -1,10 +1,8 @@
 package com.dillian.energymanagement.entities.building;
 
 import com.dillian.energymanagement.dtos.BuildingDTO;
-import com.dillian.energymanagement.dtos.SolarPanelDTO;
 import com.dillian.energymanagement.entities.BuildingVisitor;
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,11 +23,9 @@ public class PublicBuilding extends Building {
     private int researchIncome;
     private int popularityIncome;
     private int housingRequirement;
+    private int environmentalScore;
     private int solarPanelCapacity;
     private int solarPanelAmount;
-    private int environmentalScore;
-    @Embedded
-    private SolarPanelDTO solarPanelSet;
 
 
     @Override

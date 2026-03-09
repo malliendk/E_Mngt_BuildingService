@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping()
+@Slf4j
 public class BuildingController {
 
     private final BuildingService buildingService;
@@ -24,15 +25,9 @@ public class BuildingController {
         return ResponseEntity.ok(buildingService.findAllById(ids));
     }
 
-    @GetMapping("all")
+    @GetMapping()
     public List<BuildingDTO> findAll() {
         return buildingService.findAll();
-    }
-
-    @GetMapping
-    public ResponseEntity<List<BuildingDTO>> findAllPurchasable() {
-        List<BuildingDTO> purchasableBuildings = buildingService.findAllPurchasable();
-        return ResponseEntity.ok(purchasableBuildings);
     }
 
     @GetMapping("{id}")
@@ -40,7 +35,7 @@ public class BuildingController {
         return ResponseEntity.ok(buildingService.findById(id));
     }
 
-    @GetMapping("power-plants")
+    @GetMapping("power-plant")
     public ResponseEntity<List<BuildingDTO>> findAllPowerPlants() {
         return ResponseEntity.ok(buildingService.findAllPowerPlants());
     }

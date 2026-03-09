@@ -1,7 +1,6 @@
 package com.dillian.energymanagement.bootstrap.building;
 
 import com.dillian.energymanagement.Constants;
-import com.dillian.energymanagement.dtos.SolarPanelDTO;
 import com.dillian.energymanagement.entities.building.Housing;
 import com.dillian.energymanagement.repositories.HousingRepository;
 import lombok.AllArgsConstructor;
@@ -33,10 +32,8 @@ public class HousingBootstrap {
         vrijstaandHuis.setImageUri("assets/photos/vrijstaand-huis.jpg");
         vrijstaandHuis.setEnergyConsumption(100);
         vrijstaandHuis.setHousing(1);
-        vrijstaandHuis.setGoldIncome(2);
-        vrijstaandHuis.setPopularityIncome(3);
+        vrijstaandHuis.setPopularityIncome(2);
         vrijstaandHuis.setSolarPanelCapacity(15);
-        vrijstaandHuis.setSolarPanelSet(new SolarPanelDTO());
         vrijstaandHuis.setCanBePurchased(true);
         return vrijstaandHuis;
     }
@@ -52,8 +49,7 @@ public class HousingBootstrap {
         tweeOnderEenKap.setPrice(150);
         tweeOnderEenKap.setEnergyConsumption(175);
         tweeOnderEenKap.setHousing(2);
-        tweeOnderEenKap.setGoldIncome(1);
-        tweeOnderEenKap.setPopularityIncome(2);
+        tweeOnderEenKap.setPopularityIncome(1);
         tweeOnderEenKap.setCanBePurchased(true);
         return tweeOnderEenKap;
     }
@@ -61,7 +57,7 @@ public class HousingBootstrap {
     private Housing createApartmentBuilding() {
         Housing apartmentBuilding = new Housing();
         apartmentBuilding.setId(22L);
-        apartmentBuilding.setName("Apparementencomplex");
+        apartmentBuilding.setName("Apartment building");
         apartmentBuilding.setDescription("Gebouw met meerdere zelfstandige wooneenheden");
         apartmentBuilding.setImageUri("assets/photos/appartementen-complex.png");
         apartmentBuilding.setCategory(Constants.CATEGORY_HOUSING);
@@ -75,7 +71,7 @@ public class HousingBootstrap {
     private Housing createHuizenRij() {
         Housing huizenRij = new Housing();
         huizenRij.setId(23L);
-        huizenRij.setName("Huizenrij");
+        huizenRij.setName("Housing Block");
         huizenRij.setDescription("Aaneengesloten reeks van meerdere identieke of vergelijkbare " +
                 "woningen die een gemeenschappelijke zijmuren delen");
         huizenRij.setImageUri("assets/photos/huizenrij.jpg");

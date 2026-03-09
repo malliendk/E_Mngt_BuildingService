@@ -2,7 +2,6 @@ package com.dillian.energymanagement.services;
 
 
 import com.dillian.energymanagement.bootstrap.Generator;
-import com.dillian.energymanagement.constants.BuildingIds;
 import com.dillian.energymanagement.constants.CategoryNames;
 import com.dillian.energymanagement.dtos.AdjacencySet;
 import com.dillian.energymanagement.dtos.BuildingDTO;
@@ -30,7 +29,7 @@ public class BuildingService {
     private final HousingRepository housingRepository;
     private final PublicBuildingRepository publicBuildingRepository;
     private final PowerPlantRepository powerPlantRepository;
-    private final IndustrialBuildingRepository industrialBuildingRepository;
+    private final CommercialBuildingRepository commercialBuildingRepository;
     private final SpecialBuildingsRepository specialBuildingsRepository;
     private final Generator generator;
 
@@ -44,7 +43,7 @@ public class BuildingService {
                         gridAssetRepository.findAll(),
                         publicBuildingRepository.findAll(),
                         powerPlantRepository.findAll(),
-                        industrialBuildingRepository.findAll(),
+                        commercialBuildingRepository.findAll(),
                         specialBuildingsRepository.findAll()
                 )
                 .flatMap(List::stream)
@@ -52,14 +51,6 @@ public class BuildingService {
                 .sorted(Comparator.comparing((BuildingDTO b)
                                 -> categoryOrder.indexOf(b.getCategory()))
                         .thenComparing(BuildingDTO::getPrice))
-                .toList();
-    }
-
-    public List<BuildingDTO> findAllPurchasable() {
-        return findAll().stream()
-                .filter(buildingDTO -> !buildingDTO.getCategory().equals(CategoryNames.CATEGORY_POWER_PLANT) &&
-                        !buildingDTO.getCategory().equals(CategoryNames.CATEGORY_SPECIAL_BUILDING) &&
-                        !buildingDTO.getId().equals(BuildingIds.TOWN_HALL))
                 .toList();
     }
 
@@ -87,7 +78,7 @@ public class BuildingService {
                 housingRepository.findById(id),
                 gridAssetRepository.findById(id),
                 powerPlantRepository.findById(id),
-                industrialBuildingRepository.findById(id));
+                commercialBuildingRepository.findById(id));
         List<? extends Building> foundBuilding = candidateBuildings
                 .stream()
                 .filter(Optional::isPresent)

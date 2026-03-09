@@ -13,11 +13,11 @@ class SaveGameMapper {
     fun toDto(entity: SaveGame): SaveGameDTO {
         return SaveGameDTO(
             id = entity.id ?: 0L,
+            name = entity.name,
             supervisorInstanceId = entity.supervisorInstanceId,
             savedAt = entity.savedAt,
             tiles = entity.tiles,
-            districts = entity.districts,
-            buildingRequests = entity.buildingRequests,
+            buildings = entity.buildings,
             funds = entity.funds,
             popularity = entity.popularity,
             research = entity.research,
@@ -31,11 +31,11 @@ class SaveGameMapper {
     fun toEntity(dto: SaveGameDTO): SaveGame {
         return SaveGame(
             id = if (dto.id == 0L) null else dto.id,
+            name = dto.name,
             supervisorInstanceId = dto.supervisorInstanceId,
             savedAt = dto.savedAt,
             tiles = dto.tiles,
-            districts = dto.districts,
-            buildingRequests = dto.buildingRequests,
+            buildings = dto.buildings,
             funds = dto.funds,
             popularity = dto.popularity,
             research = dto.research,

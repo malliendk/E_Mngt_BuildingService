@@ -15,16 +15,16 @@ public class EnergySourceBootstrap {
     private final EnergySourceRepository energySourceRepository;
 
     public void saveEnergySources() {
-        final EnergySource zonneWeide = createZonneWeide();
+        final EnergySource zonneWeide = createSolarField();
         final EnergySource windMolenPark = createWindMolenPark();
         final EnergySource windParkOpZee = createWindParkOpZee();
         energySourceRepository.saveAll(List.of(zonneWeide, windMolenPark, windParkOpZee));
     }
 
-    private EnergySource createZonneWeide() {
+    private EnergySource createSolarField() {
         EnergySource zonneWeide = new EnergySource();
         zonneWeide.setId(1L);
-        zonneWeide.setName("Zonneweide");
+        zonneWeide.setName("Solar Field");
         zonneWeide.setDescription("Een grootschalig zonnepark op land dat " +
                 "duurzame elektriciteit opwekt met zonnepanelen");
         zonneWeide.setImageUri("assets/photos/solar_field.png");
@@ -38,7 +38,7 @@ public class EnergySourceBootstrap {
     private EnergySource createWindMolenPark() {
         EnergySource windMolenPark = new EnergySource();
         windMolenPark.setId(2L);
-        windMolenPark.setName("Windmolenpark");
+        windMolenPark.setName("Wind Turbine");
         windMolenPark.setDescription("Een groep windturbines die windenergie " +
                 "omzetten in elektriciteit");
         windMolenPark.setCategory(Constants.CATEGORY_ENERGY_PRODUCTION);
@@ -52,7 +52,7 @@ public class EnergySourceBootstrap {
     private EnergySource createWindParkOpZee() {
         EnergySource windParkOpZee = new EnergySource();
         windParkOpZee.setId(3L);
-        windParkOpZee.setName("Windpark op zee");
+        windParkOpZee.setName("Sea-side Wind Turbine");
         windParkOpZee.setDescription("Een groep windturbines in open water " +
                 "die windenergie omzetten in elektriciteit");
         windParkOpZee.setCategory(Constants.CATEGORY_ENERGY_PRODUCTION);

@@ -1,7 +1,7 @@
 package com.dillian.energymanagement.controllers;
 
-import com.dillian.energymanagement.entities.Supervisor;
 import com.dillian.energymanagement.dtos.SupervisorDTO;
+import com.dillian.energymanagement.entities.Supervisor;
 import com.dillian.energymanagement.services.SupervisorService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;

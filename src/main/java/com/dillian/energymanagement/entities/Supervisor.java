@@ -15,8 +15,8 @@ import lombok.ToString;
 @ToString
 public class Supervisor {
 
-    @Id
     private Long id;
+    @Id
     @GeneratedValue
     private int instanceId;
     private String name;
