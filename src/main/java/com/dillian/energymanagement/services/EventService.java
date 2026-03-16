@@ -1,7 +1,6 @@
 package com.dillian.energymanagement.services;
 
 import com.dillian.energymanagement.dtos.EventDTO;
-import com.dillian.energymanagement.entities.Event;
 import com.dillian.energymanagement.mappers.EventMapper;
 import com.dillian.energymanagement.repositories.EventRepository;
 import lombok.AllArgsConstructor;

@@ -61,7 +61,7 @@ public class HousingBootstrap {
         apartmentBuilding.setDescription("Gebouw met meerdere zelfstandige wooneenheden");
         apartmentBuilding.setImageUri("assets/photos/appartementen-complex.png");
         apartmentBuilding.setCategory(Constants.CATEGORY_HOUSING);
-        apartmentBuilding.setPrice(1250);
+        apartmentBuilding.setPrice(1000);
         apartmentBuilding.setEnergyConsumption(1625);
         apartmentBuilding.setHousing(25);
         apartmentBuilding.setCanBePurchased(true);
